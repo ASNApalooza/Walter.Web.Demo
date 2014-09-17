@@ -1,0 +1,56 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.company-logo {
+    padding-top: 8px;
+}
+.border {
+  border: 1px solid gray;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+th {
+    background-color: #2d2d2d;
+    color: white;
+} 
+
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+    background-color: #eeeeee;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+      background-color: silver;
+}
+
+.show-inline {
+    display: inline;
+}
+
+/*
+input[type=text], input[type=password], input[type=email], input[type=number] {
+    height: 28px !important;
+}
+
+*/
+.jumbotron.jumbotron-sm {
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.ui-autocomplete-loading {
+    /*background-color: white;*/
+    background-image: url('../images/concentric-spinner.gif');
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+}
+
+.my-ui-icon-alert {
+    background: white url('../images/icon-alert.png') right center no-repeat;
+}

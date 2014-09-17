@@ -1,0 +1,1 @@
+<%@ Application Language="AVR" CodeBehind="App_Code/Global.aspx.vr" Inherits="Global" %>

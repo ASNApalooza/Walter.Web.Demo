@@ -1,0 +1,182 @@
+﻿Using System
+Using System.Data
+Using System.Configuration
+Using System.Collections
+Using System.Web
+Using System.Web.Security
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.WebControls.WebParts
+Using System.Web.UI.HtmlControls
+Using ASNA.DataGate.Client
+Using ASNA.DataGate.Common
+Using ASNA.DataGate.DataLink
+Using ASNA.DataGate.Providers
+Using ASNA.Helpers.DataServices
+Using ASNA.VisualRPG.Runtime
+Using System.Text.RegularExpressions
+
+BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System.Web.UI.Page)
+    DclFld DEFAULT_SORT_ORDER Type(*Integer4) Inz(OrderBy.Number)
+    DclFld DBNAME             Type(*String) 
+
+    DclFld CurrentOrderBy Type(*Integer4)
+    DclFld CMNameValue   Type(*String)
+    DclFld CMCustNoValue Type(*Integer4) 
+
+    BegEnum OrderBy 
+        DclEnumFld Name
+        DclENumFld Number
+    EndEnum
+
+    BegSr Page_Load Access(*Private) Event(*This.Load)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        Page.Title = "DataList"
+        (*This.Master *As Home).PageHeading = "DataList: Server side" 
+        DBNAME = (*This.Master *As Home).DBName
+
+        If (NOT Page.IsPostBack)
+            CurrentOrderBy = OrderBy.Name
+            Viewstate["orderby"] = CurrentOrderBy 
+            SetPositionToValueKeyValues(String.Empty, 0)
+            LoadGrid()
+        Else 
+            CurrentOrderBy = Viewstate["orderby"].ToString()
+        EndIf
+    EndSr
+
+    BegSr SetPositionToValueKeyValues 
+        DclSrParm Name   Type(*String)
+        DclSrParm Number Type(*Integer4) 
+
+        CMNameValue   = Name
+        CMCustNoValue = Number 
+    EndSr
+
+    BegSr SaveKeys
+        DclSrParm QFile Type(ASNA.Helpers.DataServices.QueryFile)
+        DclFld x Type(*String) 
+
+        ForEach fk Type(QueryField) Collection(QFile.EndingKeys) 
+            Viewstate["NEXT_"+ fk.FieldName.ToUpper()] = fk.FieldValue 
+        EndFor 
+    EndSr
+
+    BegSr RestoreKeys 
+        If (CurrentOrderBy = OrderBy.Name) 
+            *This.CMNameValue = Viewstate["NEXT_CMNAME"].ToString()
+            *This.CMCustNoValue = Viewstate["NEXT_CMCUSTNO"].ToString()
+        ElseIf (CurrentOrderBy = OrderBy.Number)
+            *This.CMCustNoValue = Viewstate["NEXT_CMCUSTNO"].ToString()
+        EndIf             
+    EndSr
+
+    BegSr Page_Unload Access(*Private) Event(*This.Unload)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        //
+        // Called when the page is unloaded.
+        //
+    EndSr
+
+    BegSr gridviewCustomers_PreRender Access(*Private) Event(*This.gridviewCustomers.PreRender)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        ASNA.Helpers.ASPNET.Controls.AddHTMLHeaderAndFooter(gridviewCustomers)
+    EndSr
+    
+	BegSr linkbuttonNext_Click Access(*Private) Event(*This.linkbuttonNext.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+        RestoreKeys()
+        LoadGrid()
+    EndSr
+
+    BegFunc ConfigureDataList Type(ASNA.Helpers.DataServices.DataListInstanceArgs) 
+        DclFld Args      Type(ASNA.Helpers.DataServices.DataListInstanceArgs) New()
+
+        Args.Library   = "Examples"
+        Args.Fields    = "CMCUSTNO,CMNAME"
+        Args.Rows      = 12
+        Args.QueryType = ASNA.Helpers.DataServices.QueryType.Paged
+
+        If (CurrentOrderBy = OrderBy.Name) 
+            Args.File      = "CmastNewL2"
+            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMNAME",*This.CMNameValue))
+            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))
+        ElseIf (CurrentOrderBy = OrderBy.Number)
+            Args.File      = "CmastNewL1"        
+            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))        
+        EndIf             
+
+        LeaveSr Args
+    EndFunc
+
+    BegSr LoadGrid
+        DclFld DGDB      Type(AdgConnection) 
+        DclFld Args      Type(ASNA.Helpers.DataServices.DataListInstanceArgs) New()
+        DclFLd QFile    Type(ASNA.Helpers.DataServices.QueryFile)
+
+        DGDB = *New AdgConnection(*This.DBNAME)
+        Args = ConfigureDataList()
+        QFile = *New ASNA.Helpers.DataServices.QueryFile(DGDB,args)
+
+        If (QFile.GetList())
+            gridviewCustomers.DataSource = QFile.ListAsDataTable
+            gridviewCustomers.DataBind()
+            SaveKeys(QFile) 
+        EndIf
+
+        DGDB.Close()
+    EndSr
+	
+	BegSr linkbuttonPosition_Click Access(*Private) Event(*This.linkbuttonPosition.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+        If (CurrentOrderBy = OrderBy.Name) 
+            *This.CMNameValue = textboxPosition.Text.Trim()
+            *This.CMCustNoValue = 0
+        ElseIf (CurrentOrderBy = OrderBy.Number)
+            *This.CMCustNoValue = textboxPosition.Text.Trim()
+        EndIf             
+
+        LoadGrid()
+        textboxPosition.Text = String.Empty 
+	EndSr
+    
+	BegSr linkbuttonFirst_Click Access(*Private) Event(*This.linkbuttonFirst.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+        SetPositionToValueKeyValues(String.Empty, 0)
+        LoadGrid()
+	EndSr
+
+	BegSr linkbuttonByName_Click Access(*Private) Event(*This.linkbuttonByName.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+	
+        CurrentOrderBy = OrderBy.Name
+        labelSortBy.Text = "By name"
+        Viewstate["orderby"] = CurrentOrderBy 
+        SetPositionToValueKeyValues(String.Empty, 0)
+        LoadGrid()
+	EndSr
+
+	BegSr linkbuttonByNumber_Click Access(*Private) Event(*This.linkbuttonByNumber.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+		
+        CurrentOrderBy = OrderBy.Number
+        labelSortBy.Text = "By number"
+        Viewstate["orderby"] = CurrentOrderBy 
+        SetPositionToValueKeyValues(String.Empty, 0)
+        LoadGrid()
+	EndSr
+EndClass

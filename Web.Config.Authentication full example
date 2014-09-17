@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- 
+    Note: As an alternative to hand editing this file you can use the 
+    web admin tool to configure settings for your application. Use
+    the Website->Asp.Net Configuration option in Visual Studio.
+    A full list of settings and comments can be found in 
+    machine.config.comments usually located in 
+    \Windows\Microsoft.Net\Framework\v2.x\Config 
+-->
+<configuration>
+  <appSettings>
+    <add key="WebAppName" value="wcErrorHandling"/>
+    <add key="AdminEmail" value="rp@asna.com"/>
+    <add key="MailServer" value="mail.asna.com"/>
+  </appSettings>
+  <connectionStrings/>
+  
+  <system.net>
+    <mailSettings>
+      <smtp deliveryMethod="SpecifiedPickupDirectory">        
+        <!-- http://www.devcurry.com/2011/03/test-emails-in-aspnet-without-mail.html -->
+        <specifiedPickupDirectory pickupDirectoryLocation="C:\Mails\"/>
+      </smtp>
+    </mailSettings>    
+  </system.net>
+  
+  <system.web>
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <compilation debug="true" targetFramework="4.0"/>
+    <!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        -->
+    <authentication mode="Forms">
+      <!-- name = name of cookie. -->
+      <forms name="Login form" loginUrl="LoginPage.aspx" timeout="20160"/>
+      <!-- 
+                 The timeout value is specified in minutes. 20160 says the authentication
+                 times out in 14 days, ie ( 60 * 24 ) * 14.
+                 This value also determines how long the authentication cookie, if used,
+                 persists.
+            -->
+      <!-- For more information:
+            http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconaspnetarchitecture.asp  
+            -->
+    </authentication>
+    <!-- deny all unauthorized users -->
+    <authorization>
+      <deny users="?"/>
+    </authorization>
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+    <trace enabled="true"/>
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID"/>
+  </system.web>
+  <!-- 
+    ASP.NET locks users out of these folders until they are authenticated. 
+    These two folders, css and images, must grant _all_ users uncondition 
+    access to them; otherwise the login page shows without its CSS and its 
+    images.
+    -->
+  <location path="public">
+    <system.web>
+      <authorization>
+        <allow users="?"/>
+      </authorization>
+    </system.web>
+  </location>
+</configuration>

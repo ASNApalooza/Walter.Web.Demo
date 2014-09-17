@@ -1,0 +1,15 @@
+{
+  "name": "rpence",
+  "dependencies": {
+    "bootstrap": "~3.2",
+    "datatables": "~1.9",
+    "datatables-plugins": null,
+    "font-awesome": "~4.2",
+    "jquery": "~1.11",
+    "jquery-ui": "~1.11",
+    "underscore": "~1.6"
+  },
+  "resolutions": {
+    "jquery": "~1.11"
+  }
+}

@@ -1,0 +1,98 @@
+﻿Using System
+Using System.Data
+Using System.Configuration
+Using System.Web
+Using System.Web.Security
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.WebControls.WebParts
+Using System.Web.UI.HtmlControls
+Using ASNA.DataGate.Client
+Using System.Configuration
+
+
+
+/// <summary>
+/// Summary description for CustomerJsonLookUp
+/// </summary>
+BegClass JsonAutoComplete Access(*Public)  Implements(IHttpHandler)
+
+    BegSr GetArgs
+        DclSrParm Context Type(HttpContext)
+        DclSrParm Args    Type(ASNA.Helpers.DataServices.DataListInstanceArgs) 
+
+        //DclFld QF Type(ASNA.Helpers.DataServices.QueryField) 
+
+        args.library  = GetQueryStringValue(Context,"library")
+        args.file     = GetQueryStringValue(Context,"file")
+        args.fields   = GetQueryStringValue(Context,"fields")
+        args.rows     = GetQueryStringValue(Context,"rows")
+        args.Query    = GetQueryStringValue(Context,"query")
+        CollectQueryFields(Context,Args) 
+    EndSr
+
+    BegSr CollectQueryFields 
+        DclSrParm Context Type(HttpContext)
+        DclSrParm Args    Type(ASNA.Helpers.DataServices.DataListInstanceArgs) 
+
+        DclFld i          Type(*Integer4)
+        DclFld Field      Type(*String)
+        DclFld Value      Type(*String)         
+
+        Do FromVal(1) ToVal(3) Index(i)
+            Field = String.Format("qryfld{0}",i)
+            Value = String.Format("qryval{0}",i)
+            If (context.Request[Field] AND context.Request[Value])
+                Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField(context.Request[Field],context.Request[Value]))
+            EndIf
+        EndDo
+    EndSr
+    
+    BegFunc GetQueryStringValue Type(*String)
+        DclSrParm Context Type(HttpContext)
+        DclSrParm Key     Type(*String)
+      
+        If (Context.Request[Key] = *Nothing)             
+            Throw *New ArgumentException(Key + " argument not provided.")             
+        EndIf 
+        LeaveSr Context.Request[Key]
+    EndFunc
+
+    BegSr ProcessRequest Access(*Public) Implements(IHttpHandler.ProcessRequest)
+        DclSrParm Context Type(HttpContext)
+
+        DclFld QFile   Type(ASNA.Helpers.DataServices.QueryFile)
+        DclFld Args     Type(ASNA.Helpers.DataServices.DataListInstanceArgs) New()
+        DclFld db       Type(AdgConnection)
+        DclFld Json     Type(*String)
+        DclFld DBName   Type(*String) 
+        DclFld ActiveDBName Type(*String) 
+        DclFld Result   Type(*Boolean)
+
+        Try 
+            ActiveDBName =  ConfigurationManager.AppSettings["ActiveDBName"]
+            DBName =  ConfigurationManager.AppSettings[ActiveDBName]
+            db = *New AdgConnection(DBName)
+            db.Open()
+            GetArgs(Context,Args)
+
+            QFile = *New ASNA.Helpers.DataServices.QueryFile(db,args)
+            QFile.IndentJson = *True
+
+            Result = QFile.GetList()
+            Json = QFile.ListAsJson
+        Catch Error Type(System.Exception) 
+            Throw Error 
+        EndTry 
+
+        context.Response.ContentType = "application/json"
+        context.Response.Write(json) 
+    EndSr
+
+    BegProp IsReusable Type(*Boolean) Access(*Public) Implements(IHttpHandler.IsReusable)
+        BegGet
+            LeaveSr *False
+        EndGet
+    EndProp
+	
+EndClass

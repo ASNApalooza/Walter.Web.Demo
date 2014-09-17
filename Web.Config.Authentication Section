@@ -1,0 +1,18 @@
+﻿<authentication mode="Forms">
+        <!-- name = name of cookie. -->
+        <forms name="Login form" loginUrl="LoginPage.aspx" timeout="20160"/>
+        <!-- 
+               The timeout value is specified in minutes. 20160 says the authentication
+               times out in 14 days, ie ( 60 * 24 ) * 14.
+               This value also determines how long the authentication cookie, if used,
+               persists.
+          -->
+        <!-- For more information:
+          http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconaspnetarchitecture.asp  
+          -->
+    </authentication>
+
+    <!-- deny all unauthorized users -->
+    <authorization>
+        <deny users="?"/>
+    </authorization>
