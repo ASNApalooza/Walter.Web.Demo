@@ -97,8 +97,8 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         LoadGrid()
     EndSr
 
-    BegFunc ConfigureDataList Type(ASNA.Helpers.DataServices.DataListInstanceArgs) 
-        DclFld Args      Type(ASNA.Helpers.DataServices.DataListInstanceArgs) New()
+    BegFunc ConfigureDataList Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) 
+        DclFld Args      Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) New()
 
         Args.Library   = "Examples"
         Args.Fields    = "CMCUSTNO,CMNAME"
@@ -119,8 +119,8 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
 
     BegSr LoadGrid
         DclFld DGDB      Type(AdgConnection) 
-        DclFld Args      Type(ASNA.Helpers.DataServices.DataListInstanceArgs) New()
-        DclFLd QFile    Type(ASNA.Helpers.DataServices.QueryFile)
+        DclFld Args      Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) New()
+        DclFLd QFile     Type(ASNA.Helpers.DataServices.QueryFile)
 
         DGDB = *New AdgConnection(*This.DBNAME)
         Args = ConfigureDataList()
