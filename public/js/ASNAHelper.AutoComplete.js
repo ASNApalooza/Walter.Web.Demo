@@ -20,13 +20,16 @@ ASNAHelper.AutoComplete = function () {
         var queryString = $.param(ajaxArgs);
         var fullUrl = url + "?" + queryString;
         var promise = $.getJSON(fullUrl)
-        .done(function(data) {
+        .done(function (data) {
             if (data.list) {
                 if (data.list.length > 0) {
                     add(data.list);
                 } else {
-                    $(".ui-autocomplete-loading").addClass("my-ui-icon-alert");                    
+                    $(".ui-autocomplete-loading").addClass("my-ui-icon-alert");
                 }
+            }
+            else if (data.error) {
+                var x = data;
             }
         })
         .fail(function (jqXHR,textStatus,errorThrown) {
