@@ -7,8 +7,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 
 <div class="col-md-3">
-    <h3>The DataList in a traditional ASP.NET page</h3>
-    <p>This page shows how you might use the DataList object to provide a datatable to an ASP.NET 
+    <h3>Using Walter in a traditional ASP.NET page</h3>
+    <p>This page shows how you might use Walter to provide a datatable to an ASP.NET 
        ASPX page for use with the GridView (or any other data-aware control).</p>
     <p>One of the things the DataList does very well is let you easily change access paths at runtime. As
        the user selects how to display and position the list, different logical files are being used 

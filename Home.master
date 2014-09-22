@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse">
                     <p class="navbar-text">AVR AutoComplete</p>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="/">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
@@ -48,7 +48,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/views/DataServicesGridView.aspx">DataList in GridView</a></li>
                                 <li><a href="/views/jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
-                                <li><a href="/services/JsonAutoComplete.ashx?library=examples&file=cmastnewl2&fields=CMCUSTNO:value,CMNAME:label&rows=12&qryfld1=CMNAME&qryval1=Smi&query=CMNAME%3E%3D'%7BCMNAME%7D'">Static AutoComplete Json</a></li>
+                                <li><a href="/services/JsonAutoComplete.ashx?library=examples&file=cmastnewl2&fieldsList=CMCUSTNO:value,CMNAME:label&rows=12&qryfld1=CMNAME&qryval1=Smi&query=CMNAME%3E%3D'%7BCMNAME%7D'">Static AutoComplete Json</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -4,7 +4,7 @@
             var ajaxArgs = {
                 library: "examples",
                 file: "cmastnewl2",
-                fields: "cmname:label,cmcustno:value",
+                fieldsList: "cmname:label,cmcustno:value",
                 rows: 12,
                 qryfld1: "cmname",
                 qryval1: req.term,

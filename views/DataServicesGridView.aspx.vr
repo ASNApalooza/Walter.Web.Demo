@@ -34,7 +34,7 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         DclSrParm e Type(System.EventArgs)
 
         Page.Title = "DataList"
-        (*This.Master *As Home).PageHeading = "DataList: Server side" 
+        (*This.Master *As Home).PageHeading = "Walter: The AVR file object that's got your back!"
         DBNAME = (*This.Master *As Home).DBName
 
         If (NOT Page.IsPostBack)
@@ -57,9 +57,11 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
 
     BegSr SaveKeys
         DclSrParm QFile Type(ASNA.Helpers.DataServices.QueryFile)
+        DclSrParm Args  Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) 
+
         DclFld x Type(*String) 
 
-        ForEach fk Type(QueryField) Collection(QFile.EndingKeys) 
+        ForEach fk Type(QueryField) Collection(Args.Outputs.EndingKeys) 
             Viewstate["NEXT_"+ fk.FieldName.ToUpper()] = fk.FieldValue 
         EndFor 
     EndSr
@@ -100,18 +102,18 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
     BegFunc ConfigureDataList Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) 
         DclFld Args      Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs) New()
 
-        Args.Library   = "Examples"
-        Args.Fields    = "CMCUSTNO,CMNAME"
-        Args.Rows      = 12
-        Args.QueryType = ASNA.Helpers.DataServices.QueryType.Paged
+        Args.Inputs.Library    = "Examples"
+        Args.Inputs.FieldsList = "CMCUSTNO,CMNAME"
+        Args.Inputs.Rows       = 12
+        Args.Inputs.QueryType = ASNA.Helpers.DataServices.QueryType.Paged
 
         If (CurrentOrderBy = OrderBy.Name) 
-            Args.File      = "CmastNewL2"
-            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMNAME",*This.CMNameValue))
-            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))
+            Args.Inputs.File      = "CmastNewL2"
+            Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMNAME",*This.CMNameValue))
+            Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))
         ElseIf (CurrentOrderBy = OrderBy.Number)
-            Args.File      = "CmastNewL1"        
-            Args.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))        
+            Args.Inputs.File      = "CmastNewL1"        
+            Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))        
         EndIf             
 
         LeaveSr Args
@@ -126,11 +128,9 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         Args = ConfigureDataList()
         QFile = *New ASNA.Helpers.DataServices.QueryFile(DGDB,args)
 
-        If (QFile.GetList())
-            gridviewCustomers.DataSource = QFile.ListAsDataTable
-            gridviewCustomers.DataBind()
-            SaveKeys(QFile) 
-        EndIf
+        gridviewCustomers.DataSource = QFile.GetList()
+        gridviewCustomers.DataBind()
+        SaveKeys(QFile,Args) 
 
         DGDB.Close()
     EndSr
