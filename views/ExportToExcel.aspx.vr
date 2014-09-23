@@ -1,0 +1,68 @@
+﻿Using System
+Using System.Data
+Using System.Configuration
+Using System.Collections
+Using System.Web
+Using System.Web.Security
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.WebControls.WebParts
+Using System.Web.UI.HtmlControls
+
+BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI.Page)
+
+    BegSr Page_Load Access(*Private) Event(*This.Load)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        If (NOT Page.IsPostBack)
+            //
+            // Called the first time that the page is loaded.
+            //
+        Else
+            //
+            // Called subsequent times that the page is displayed.
+            //
+        EndIf
+    EndSr
+
+    BegSr Page_Unload Access(*Private) Event(*This.Unload)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        //
+        // Called when the page is unloaded.
+        //
+    EndSr
+
+	BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExportToExcel.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+//
+//        DclFld DGDB     Type(AdgConnection) 
+//        DclFld Query    Type(ASNA.Helpers.DataServices.QueryDriver) 
+//
+//        DGDB = *New AdgConnection((*This.Master *As Home).DBName)
+//        Query = *New ASNA.Helpers.DataServices.QueryDriver(DGDB) 
+//
+//
+//
+//
+//        dt = Query.Exec() *As DataTable
+//
+//        If (Query.Args.Error.ErrorException = *Nothing)
+//            x = 6
+//        Else 
+//            x = 5
+//        EndIf 
+//
+//        gridviewCustomers.DataSource = Query.Exec() *As DataTable 
+//        gridviewCustomers.DataBind()
+//        SaveKeys(Query) 
+//
+//        DGDB.Close()
+
+		
+	EndSr
+EndClass

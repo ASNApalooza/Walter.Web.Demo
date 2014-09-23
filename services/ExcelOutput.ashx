@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="AVR" Class="ASNA.Helpers.ASPNET.ExcelOutput"  %>
