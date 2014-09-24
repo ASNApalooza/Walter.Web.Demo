@@ -23,7 +23,8 @@
                         </asp:Panel>
                         <div class="col-md-8">
                             <div class="pull-right">
-                                <asp:LinkButton ID="linkbuttonExportToExcel" runat="server">Export to Excel</asp:LinkButton>
+                                <input type="text" name="library" id="library" required="required" />
+                                <asp:LinkButton ID="linkbuttonExportToExcel" runat="server" PostBackUrl="~/services/Tester.ashx">Export to Excel</asp:LinkButton>
                             </div>    
                         </div>    
                     </div>

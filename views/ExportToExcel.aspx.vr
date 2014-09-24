@@ -35,34 +35,4 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         //
     EndSr
 
-	BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExportToExcel.Click)
-		DclSrParm sender Type(*Object)
-		DclSrParm e Type(System.EventArgs)
-
-//
-//        DclFld DGDB     Type(AdgConnection) 
-//        DclFld Query    Type(ASNA.Helpers.DataServices.QueryDriver) 
-//
-//        DGDB = *New AdgConnection((*This.Master *As Home).DBName)
-//        Query = *New ASNA.Helpers.DataServices.QueryDriver(DGDB) 
-//
-//
-//
-//
-//        dt = Query.Exec() *As DataTable
-//
-//        If (Query.Args.Error.ErrorException = *Nothing)
-//            x = 6
-//        Else 
-//            x = 5
-//        EndIf 
-//
-//        gridviewCustomers.DataSource = Query.Exec() *As DataTable 
-//        gridviewCustomers.DataBind()
-//        SaveKeys(Query) 
-//
-//        DGDB.Close()
-
-		
-	EndSr
 EndClass
