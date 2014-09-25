@@ -79,10 +79,10 @@
             </div>
         </footer>
 
-    </form>
     <script src="/public/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/public/vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="/public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/public/vendor/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
 
     <script>
         // Avoid jQueryUI/Bootstrap component conflicts.            
@@ -93,5 +93,8 @@
     </script>
 
 	<asp:contentplaceholder id="ContentPlaceHolderPageBottom" runat="server"></asp:contentplaceholder> 
+
+</form>
+
 </body>
 </html>

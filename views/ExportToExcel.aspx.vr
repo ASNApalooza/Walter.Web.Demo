@@ -15,7 +15,19 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
+        DclFld url Type(*String)             
+        url = Request.UrlReferrer.AbsolutePath
+        url = Request.UrlReferrer.AbsoluteUri
+
+
         If (NOT Page.IsPostBack)
+
+
+            If (Request.QueryString["error"] <> *Nothing)
+                ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showExcelError()", *True)
+            EndIf 
+
+
             //
             // Called the first time that the page is loaded.
             //

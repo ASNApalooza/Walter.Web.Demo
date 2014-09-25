@@ -21,14 +21,10 @@ BegClass Tester Access(*Public) Implements (IHttpHandler)
         DclFld ExcelAdapter  Type(ASNA.Helpers.DataServices.ToExcelAdapter)
         DclFld WorkBook      Type(XLWorkBook) 
         DclFLd MemStream     Type(System.IO.MemoryStream) New()
+        DclFld Url           Type(*String)
 
         Try 
-//            DclFld url Type(*String) 
-//            url = Context.Request.UrlReferrer.AbsolutePath
-//            //Context.Response.Redirect(Url)
-//            LeaveSr
-            Throw *New System.ArgumentException("error thrown") 
-
+            //Throw *New System.ArgumentException("error thrown") 
 
             ActiveDBName =  ConfigurationManager.AppSettings["ActiveDBName"]
             DBName =  ConfigurationManager.AppSettings[ActiveDBName]
@@ -48,21 +44,14 @@ BegClass Tester Access(*Public) Implements (IHttpHandler)
             WorkBook = Query.Exec() *As XLWorkBook
             WorkBook.SaveAs(MemStream)
             MemStream.WriteTo(context.Response.OutputStream) 
-            context.Response.End() 
+            //context.Response.End() 
             MemStream.Dispose()
 
             db.Close() 
         Catch ex Type(System.Exception) 
-            Context.Response.Redirect( "../views/ExportToExcel.aspx?ERROR=90", *True) 
-
-//            DclFld x Type(*String)
-//            x = ex.Message 
-//            Context.Response.Redirect("../views/error.aspx") 
-//            LeaveSr
+            Url = "../" + Context.Request.UrlReferrer.AbsolutePath + "?ERROR=90"
+            Context.Response.Redirect( Url, *True) 
         EndTry 
-
-//        context.Response.ContentType = "text/plain"
-//        context.Response.Write("Hello World")
     EndSr
 
     BegSr GetArgs 

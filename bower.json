@@ -7,7 +7,9 @@
     "font-awesome": "~4.2",
     "jquery": "~1.11",
     "jquery-ui": "~1.11",
-    "underscore": "~1.6"
+    "underscore": "~1.6",
+    "bootstrap-growl": "~1.1"
+
   },
   "resolutions": {
     "jquery": "~1.11"
