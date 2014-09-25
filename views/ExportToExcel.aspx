@@ -23,7 +23,12 @@
                         </asp:Panel>
                         <div class="col-md-8">
                             <div class="pull-right">
-                                <input type="text" name="library" id="library" required="required" />
+                                <input type="text" name="library"        id="library" required="required" value="examples" /><br />
+                                <input type="text" name="file"           id="file" required="required"  value="CMastNewL2" /><br />
+                                <input type="text" name="fieldsList"     id="fieldsList" required="required"  value="CMCUSTNO:Number,CMNAME:Name,CMADDR1:Address,CMCITY:City" /><br />
+                                <input type="text" name="rows"           id="rows" required="required"  value="1000" /><br />
+                                <input type="text" name="queryType"      id="queryType" required="required"  value="paged" /><br />
+                                <input type="text" name="qryFld0"        required="required"  value="@cmcustno:i'0'" /><br />
                                 <asp:LinkButton ID="linkbuttonExportToExcel" runat="server" PostBackUrl="~/services/Tester.ashx">Export to Excel</asp:LinkButton>
                             </div>    
                         </div>    
