@@ -45,14 +45,17 @@ BegClass ExcelOutput Access(*Public) Implements (IHttpHandler)
             //http://localhost:8080/services/ExcelOutput.ashx?library=examples&file=cmastnewl2&fieldsList=CMCUSTNO:value,CMNAME:label&rows=12&qryfld1=CMNAME&qryval1=Smi&query=CMNAME%3E%3D%27%7BCMNAME%7D%27
             
             WorkBook = Query.Exec() *As XLWorkBook
+            If (Query.Args.Error.ErrorException <> *Nothing) 
+                logger.Info("QueryFile exception",Query.Args.Error.ErrorException) 
+                Throw Query.Args.Error.ErrorException
+            EndIf 
             WorkBook.SaveAs(MemStream)
             MemStream.WriteTo(context.Response.OutputStream) 
             //context.Response.End() 
             MemStream.Dispose()
 
             db.Close() 
-        Catch ex Type(System.Exception) 
-            logger.Info(ex.Message) 
+        Catch ex Type(System.Exception)             
             Url = "../" + Context.Request.UrlReferrer.AbsolutePath + "?ERROR=90"
             Context.Response.Redirect( Url, *True) 
         EndTry 

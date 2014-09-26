@@ -5,3 +5,25 @@ INFO  2014-09-25 23:09:15,607 18206ms Home                   Page_Load          
 INFO  2014-09-25 23:33:59,243 13815ms Home                   Page_Load          - hello there
 INFO  2014-09-25 23:34:42,235 56806ms Home                   Page_Load          - hello there
 INFO  2014-09-25 23:37:16,670 211242ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:52:07,867 12569ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:52:10,176 14878ms ExcelOutput            ProcessRequest     - File Not Found
+INFO  2014-09-25 23:52:10,220 14922ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:54:43,525 13037ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:54:45,167 14679ms ExcelOutput            ProcessRequest     - Object reference not set to an instance of an object.
+INFO  2014-09-25 23:54:45,215 14727ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:56:24,803 11783ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:56:27,166 14146ms ExcelOutput            ProcessRequest     - Query exception
+ASNA.DataGate.Common.dgException: File Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.Exec()
+INFO  2014-09-25 23:56:27,190 14170ms ExcelOutput            ProcessRequest     - File Not Found
+INFO  2014-09-25 23:56:27,238 14218ms Home                   Page_Load          - hello there
+INFO  2014-09-25 23:59:25,273 11164ms Home                   Page_Load          - hello there
