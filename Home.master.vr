@@ -12,6 +12,9 @@ Using System.Web.UI.HtmlControls
 
 BegClass Home Partial(*Yes) Access(*Public) Extends(System.Web.UI.MasterPage)
 
+    DclFld logger Type(log4Net.ILog) Shared(*Yes) Access(*Public)
+    //logger = log4Net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
+
     BegProp PageHeading Access(*Public) Type(*String) 
         BegGet
             LeaveSr labelPageHeading.Text 
@@ -32,6 +35,7 @@ BegClass Home Partial(*Yes) Access(*Public) Extends(System.Web.UI.MasterPage)
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
+        logger = log4Net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
     EndSr
 
 EndClass

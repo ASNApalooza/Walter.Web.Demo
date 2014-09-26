@@ -8,7 +8,7 @@ Using ClosedXMl.Excel
 Using System.IO 
 
 
-BegClass Tester Access(*Public) Implements (IHttpHandler)
+BegClass ExcelOutput Access(*Public) Implements (IHttpHandler)
 
     BegSr ProcessRequest Access(*Public) Implements(IHttpHandler.ProcessRequest)
         DclSrParm Context Type(HttpContext)
@@ -23,6 +23,9 @@ BegClass Tester Access(*Public) Implements (IHttpHandler)
         DclFLd MemStream     Type(System.IO.MemoryStream) New()
         DclFld Url           Type(*String)
 
+        DclFld logger Type(log4Net.ILog) 
+        logger = log4Net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
+        
         Try 
             //Throw *New System.ArgumentException("error thrown") 
 
@@ -49,6 +52,7 @@ BegClass Tester Access(*Public) Implements (IHttpHandler)
 
             db.Close() 
         Catch ex Type(System.Exception) 
+            logger.Info(ex.Message) 
             Url = "../" + Context.Request.UrlReferrer.AbsolutePath + "?ERROR=90"
             Context.Response.Redirect( Url, *True) 
         EndTry 

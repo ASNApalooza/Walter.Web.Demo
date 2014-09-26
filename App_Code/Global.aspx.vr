@@ -19,6 +19,11 @@ BegClass Global Access(*Public) Extends(System.Web.HttpApplication)
 
         DclFld DBNameKey Type(*String) 
 
+        DclFld l4net Type(*String) 
+         
+        l4net = Server.MapPath("~/log4net.config")
+        log4net.Config.XmlConfigurator.ConfigureAndWatch(*New System.IO.FileInfo(l4net))
+
         If (Application["DBName"] = *Nothing) 
             DBNameKey = ConfigurationManager.AppSettings["ActiveDBName"]
             Application["DBName"] = ConfigurationManager.AppSettings[DBNameKey]
