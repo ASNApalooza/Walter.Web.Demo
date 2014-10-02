@@ -81,7 +81,7 @@ BegClass ExcelOutput Access(*Public) Implements (IHttpHandler)
             KeyValue = Context.Request.Form[key]                
             If (KeyValue.StartsWith("@")) 
                 qf = ASNA.Helpers.DataServices.Parse.ParseQueryField(KeyValue) 
-                Query.Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField(qf.Name,qf.Value)) 
+                Query.Args.Inputs.QueryParms.Add(*New ASNA.Helpers.DataServices.QueryField(qf.Name,qf.Value)) 
             EndIf 
         EndFor 
     EndSr

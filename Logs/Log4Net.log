@@ -27,3 +27,48 @@ ASNA.DataGate.Common.dgException: File Not Found
 INFO  2014-09-25 23:56:27,190 14170ms ExcelOutput            ProcessRequest     - File Not Found
 INFO  2014-09-25 23:56:27,238 14218ms Home                   Page_Load          - hello there
 INFO  2014-09-25 23:59:25,273 11164ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:02:48,452  6930ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:03:16,527 35005ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:05:08,413 146891ms ExcelOutput            ProcessRequest     - QueryFile exception
+ASNA.DataGate.Common.dgException: File Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.Exec()
+INFO  2014-09-26 09:05:08,483 146961ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:12:49,766 608244ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:12:52,369 610846ms ExcelOutput            ProcessRequest     - QueryFile exception
+ASNA.DataGate.Common.dgException: File Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.Exec()
+INFO  2014-09-26 09:12:52,454 610932ms Home                   Page_Load          - hello there
+INFO  2014-09-26 09:13:31,696 650174ms ExcelOutput            ProcessRequest     - QueryFile exception
+ASNA.DataGate.Common.dgException: File Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead)
+   at ASNA.Helpers.DataServices.QueryFile.Exec()
+INFO  2014-09-26 09:13:31,810 650287ms Home                   Page_Load          - hello there
+INFO  2014-09-26 15:36:21,816 20451ms Home                   Page_Load          - hello there
+INFO  2014-09-30 17:09:43,486 59617ms Home                   Page_Load          - hello there
+INFO  2014-10-01 21:19:33,097 37498ms Home                   Page_Load          - hello there

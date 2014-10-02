@@ -109,11 +109,11 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
 
         If (CurrentOrderBy = OrderBy.Name) 
             Query.Args.Inputs.File      = "CmastNewL2"
-            Query.Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMNAME",*This.CMNameValue))
-            Query.Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))
+            Query.Args.Inputs.QueryParms.Add(*New ASNA.Helpers.DataServices.QueryField("CMNAME",*This.CMNameValue))
+            Query.Args.Inputs.QueryParms.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))
         ElseIf (CurrentOrderBy = OrderBy.Number)
             Query.Args.Inputs.File      = "CmastNewL1"        
-            Query.Args.Inputs.QueryFields.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))        
+            Query.Args.Inputs.QueryParms.Add(*New ASNA.Helpers.DataServices.QueryField("CMCUSTNO",*This.CMCustNoValue))        
         EndIf             
     EndSr 
 
