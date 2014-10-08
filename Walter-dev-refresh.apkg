@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="Walter-dev-refresh" location="https://github.com/ASNApalooza">
+    <dependencies>
+    </dependencies>
+    <files>
+        <file fileName="/ASNA.Helpers.DataServices.dll" sourceFolder="/ASNA.Helpers.DataServices/raw/master/ASNA.Helpers.DataServices/bin/Debug" targetFolder="\bin"></file>
+        <file fileName="/ASNA.Helpers.DataServices.pdb" sourceFolder="/ASNA.Helpers.DataServices/raw/master/ASNA.Helpers.DataServices/bin/Debug" targetFolder="\bin"></file>
+        <file fileName="/ASNA.Helpers.ASPNET.dll" sourceFolder="/ASNA.Helpers.ASPNET/raw/master/ASNA.Helpers.ASPNET/bin/Debug" targetFolder="\bin"></file>
+        <file fileName="/ASNA.Helpers.ASPNET.pdb" sourceFolder="/ASNA.Helpers.ASPNET/raw/master/ASNA.Helpers.ASPNET/bin/Debug" targetFolder="\bin"></file>
+    </files>    
+</package>
