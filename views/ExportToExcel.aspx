@@ -29,7 +29,7 @@
                                 <input type="text" name="rows"           id="rows" required="required"  value="1000" /><br />
                                 <input type="text" name="queryType"      id="queryType" required="required"  value="paged" /><br />
                                 <input type="text" name="qryFld0"        required="required"  value="@cmcustno:i'0'" /><br />
-                                <asp:LinkButton ID="linkbuttonExportToExcel" runat="server" PostBackUrl="~/services/ExcelOutput.ashx" ClientIDMode="Static">Export to Excel</asp:LinkButton>
+                                <asp:LinkButton ID="linkbuttonExportToExcel" runat="server" PostBackUrl="~/services/ExcelService.ashx" ClientIDMode="Static">Export to Excel</asp:LinkButton>
                             </div>    
                         </div>    
                     </div>

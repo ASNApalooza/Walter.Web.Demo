@@ -4,4 +4,4 @@
 
 
 
-<%@ WebHandler Language="AVR" Class="ASNA.Helpers.ASPNET.ExcelOutput" %>
+<%@ WebHandler Language="AVR" Class="ASNA.Helpers.ASPNET.ExcelService" %>

@@ -1,14 +1,14 @@
 ﻿$(function () {
-    ASNAHelper.RegisterAutoComplete.forField({
-        labelTargetId: "textboxCustomerName",
-        valueTargetId: "textboxCustomerNumber",
-        library: "examples",
-        file: "cmastnewL2",
-        fieldsList: "cmname:label,cmcustno:value",
-        rows: 12,
-        qryfld1: "cmname",
-        query: "CMNAME >= '{CMNAME}'",
-        url: "/services/JsonAutoComplete.ashx",
-        showLabelOnScroll: true
-    });
+    var ACCustomerName = new ASNAHelpers.QueryInputArgs();
+    ACCustomerName.url = "../services/jsonservice.ashx";
+    ACCustomerName.Library = "examples";
+    ACCustomerName.File = "cmastnewl2";
+    ACCustomerName.FieldsList = "cmname:label,cmcustno:value";
+    ACCustomerName.Rows = 12;
+    ACCustomerName.Query = "CMNAME >= '{CMNAME}'";
+    ACCustomerName.addQueryParm("CMNAME");
+    ACCustomerName.addOption("labelTargetId", "textboxCustomerName");
+    ACCustomerName.addOption("labelValueId", "textboxCustomerNumber");
+    ACCustomerName.addOption("showLabelOnScroll", true);
+    ASNAHelpers.autoComplete.registerQuery(ACCustomerName);
 });

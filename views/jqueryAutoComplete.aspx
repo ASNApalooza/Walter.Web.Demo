@@ -38,7 +38,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
-    <script src="../public/js/ASNAHelper.AutoComplete.js"></script>
+    <script src="../public/js/ASNAHelpers.QueryInputArgs.js"></script>
     <script src="../public/js/jQueryAutoComplete.aspx.js"></script>
 </asp:Content>
 
