@@ -45,4 +45,31 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         //
     EndSr
 
+	BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExportToExcel.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+
+        DclFld Inputs Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs.InputArgs) New()
+        DclFLd ex     Type(ASNA.Helpers.ASPNET.ExcelExport) New()
+        DclFld Result Type(*Boolean)
+
+        Inputs.Library      = "examples"
+        Inputs.File         = "cmastnewl2"
+        Inputs.FieldsList   = "CMCUSTNO:Number,CMNAME:Name,CMADDR1:Address,CMCITY:City"
+        Inputs.Rows         = -1
+        Inputs.Query        = "CMCUSTNO > 0"
+        Inputs.QueryParms.Add(*New ASNA.Helpers.DataServices.QueryField("CMCustNo",0))
+        Inputs.OrderBy.Add(*New ASNA.Helpers.DataServices.QueryOrderByField("CMNAME",0))
+        Inputs.Options.Add("heading","Customer Listing  " + DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"))
+        Inputs.Options.Add("worksheet_name","Customers")
+                
+        Result = ex.CreateSpreadsheet(HttpContext.Current,Inputs) 
+        If (Result) 
+            // Spreadsheet creation was successful.
+        Else 
+            // Spreadsheet creation failed.
+        EndIf
+		
+	EndSr
 EndClass
