@@ -49,7 +49,6 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
-
         DclFld Inputs Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs.InputArgs) New()
         DclFLd ex     Type(ASNA.Helpers.ASPNET.ExcelExport) New()
         DclFld Result Type(*Boolean)
