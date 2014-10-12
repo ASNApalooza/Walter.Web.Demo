@@ -57,11 +57,11 @@
                 console.log(JSON.stringify(originObject));
         }
 
-        function postJson(url, jsonToPost, successCallBack, alwaysCallBack, failCallBack) {
+        function postJson(url, jsonToPost, doneCallBack, alwaysCallBack, failCallBack) {
             var jqXHR = $.post(url, jsonToPost, function() {
             },"json")
               .done(function(json) {
-                  successCallBack(json);       
+                  doneCallBack(json);       
               })
               .fail(function (jqXHR,textStatus,errorThrown) {
                 if ( typeof(failCallBack) == "undefined") {
@@ -180,7 +180,7 @@
             this.showLabelOnScroll = inputs.Options["showLabelOnScroll"] || false;   
             this.onSelect = inputs.Options["onSelect"] || null;
 
-            var successCallBack = function(json) {
+            var doneCallBack = function(json) {
                 if (json.list) {
                     if (json.list.length > 0) {
                         add(json.list);
@@ -200,7 +200,7 @@
             };
 
             var json = inputs.getJson();
-            ASNAHelpers.ajax.postJson(url,json,successCallBack,alwaysCallBack);
+            ASNAHelpers.ajax.postJson(url,json,doneCallBack,alwaysCallBack);
 
             restoreReplaceableQueryParmValues(inputs);
         },

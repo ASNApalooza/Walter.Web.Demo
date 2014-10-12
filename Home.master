@@ -11,13 +11,13 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+    <%--<link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css">--%>
+    <link rel="stylesheet" href="/public/vendor/font-awesome/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="/public/vendor/jquery-ui/themes/smoothness/theme.css"> -->
 
     <link rel="stylesheet" href="/public/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="/public/vendor/font-awesome/css/font-awesome.min.css">
 
 
     <link rel="stylesheet" href="/public/css/home.master.css">
@@ -47,6 +47,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/views/DataServicesGridView.aspx">DataList in GridView</a></li>
+                                <li><a href="/views/JsonDataTable.aspx">Json DataTable</a></li>
                                 <li><a href="/views/jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
                                 <li><a href="/views/AutoComplete.json.html" target="_blank">Static AutoComplete Json</a></li>
                                 <li><a href="/views/ExportToExcel.aspx">Export to Excel</a></li>
