@@ -90,9 +90,7 @@
             </div>
         </footer>
 
-    <%
-    If (HttpContext.Current.IsDebuggingEnabled)     
-    %>
+    <% If (HttpContext.Current.IsDebuggingEnabled) %>
         <script src="<%=Page.ResolveUrl("~")%>public/vendor/jquery/dist/jquery.min.js"></script>
         <script src="<%=Page.ResolveUrl("~")%>public/vendor/jquery-ui/jquery-ui.min.js"></script>
         <script src="<%=Page.ResolveUrl("~")%>public/vendor/underscore/underscore.js"></script>
@@ -108,13 +106,9 @@
 
         <!-- JsonDataTable.aspx content page -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/JsonDataTable.aspx.js"></script>
-    <%
-    Else
-    %>        
+    <% Else %>        
         <script src="<%=Page.ResolveUrl("~")%>public/site.compressed.js"></script>
-    <%
-    EndIf 
-    %>
+    <% EndIf %>
     
     <script>
         // Avoid jQueryUI/Bootstrap component conflicts.            
