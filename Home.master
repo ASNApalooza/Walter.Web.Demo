@@ -8,19 +8,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AVR+BootStrap</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <%--<link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css">--%>
-    <link rel="stylesheet" href="/public/vendor/font-awesome/css/font-awesome.min.css">
 
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/css/home.master.css">
+
+    <!-- Bootstrap adapter for JS DataTables -->
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css">
+    <%
+    Else
+    %>
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/css/site-compressed.css">
+    <%
+    EndIf 
+    %>
+    
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css"> -->
     <!-- <link rel="stylesheet" href="/public/vendor/jquery-ui/themes/smoothness/theme.css"> -->
 
-    <link rel="stylesheet" href="/public/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css">
-
-
-
-    <link rel="stylesheet" href="/public/css/home.master.css">
    	<asp:contentplaceholder id="ContentPlaceHolderHeader" runat="server"></asp:contentplaceholder> 
 </head>
 
@@ -46,11 +56,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/views/DataServicesGridView.aspx">DataList in GridView</a></li>
-                                <li><a href="/views/JsonDataTable.aspx">Json DataTable</a></li>
-                                <li><a href="/views/jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
-                                <li><a href="/views/AutoComplete.json.html" target="_blank">Static AutoComplete Json</a></li>
-                                <li><a href="/views/ExportToExcel.aspx">Export to Excel</a></li>
+                                <li><a href="DataServicesGridView.aspx">DataList in GridView</a></li>
+                                <li><a href="JsonDataTable.aspx">Json DataTable</a></li>
+                                <li><a href="jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
+                                <li><a href="AutoComplete.json.html" target="_blank">Static AutoComplete Json</a></li>
+                                <li><a href="ExportToExcel.aspx">Export to Excel</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,12 +90,32 @@
             </div>
         </footer>
 
-    <script src="/public/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="/public/vendor/jquery-ui/jquery-ui.min.js"></script>
-    <script src="/public/vendor/underscore/underscore.js"></script>
-    <script src="/public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/public/vendor/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/jquery-ui/jquery-ui.min.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/underscore/underscore.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
 
+        <!-- JS DataTables -->
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>                
+
+        <!-- ASNA.Helpers.DataServices JS interface -->
+        <script src="<%=Page.ResolveUrl("~")%>public/js/ASNAHelpers.QueryInputArgs.js"></script>
+
+        <!-- JsonDataTable.aspx content page -->
+        <script src="<%=Page.ResolveUrl("~")%>public/js/JsonDataTable.aspx.js"></script>
+    <%
+    Else
+    %>        
+        <script src="<%=Page.ResolveUrl("~")%>public/site.compressed.js"></script>
+    <%
+    EndIf 
+    %>
+    
     <script>
         // Avoid jQueryUI/Bootstrap component conflicts.            
         var btn = $.fn.button.noConflict(); // return $.fn.button to previously assigned value

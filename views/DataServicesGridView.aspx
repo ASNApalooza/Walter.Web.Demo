@@ -1,7 +1,19 @@
 ﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="DataServicesGridView.aspx.vr" Inherits="views_DataServicesGridView" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
+
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
     <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.css">
+    <%
+    Else
+    %>
+    <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.min.css">
+    <%
+    EndIf 
+    %>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
@@ -63,5 +75,18 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
     <script src="../public/js/DataServicesGridView.aspx.js"></script>
+
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
+    <script src="../public/js/DataServicesGridView.aspx.js"></script>
+    <%
+    Else
+    %>
+    <script src="../public/js/DataServicesGridView.aspx.min.js"></script>
+    <%
+    EndIf 
+    %>
+
 </asp:Content>
 

@@ -45,8 +45,18 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
-    <script src="../public/js/ExportToExcel.aspx.js"></script>
 
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
+    <script src="../public/js/ExportToExcel.aspx.js"></script>
+    <%
+    Else
+    %>
+    <script src="../public/js/ExportToExcel.aspx.min.js"></script>
+    <%
+    EndIf 
+    %>
 
 </asp:Content>
 

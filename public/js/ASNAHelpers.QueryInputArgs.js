@@ -247,10 +247,12 @@
 
             saveReplaceableQueryParmValues(inputs);
             var autocompleteHelper = new AutoComplete();
+                    console.log("goodbye");       
 
             $("#" + inputs.Options["labelTargetId"]).autocomplete({
                 source: function(req,add) {                    
                     // inputs.url = "../services/jsontest.ashx";
+                    console.log("hello");       
                     inputs.ownerId = this.element.context.id; 
                     inputs.QueryParms[0]["FieldValue"] = req.term;
                     autocompleteHelper.source(req,add,inputs);

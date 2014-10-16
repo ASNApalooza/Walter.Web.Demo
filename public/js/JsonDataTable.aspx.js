@@ -1,27 +1,33 @@
 ﻿$(function () {
-    
+
+   
     function getQueryResults(state) {
         var query = new ASNAHelpers.QueryInputArgs();
         query.url = "../services/jsonservice.ashx";
         query.Library = "examples";
         query.File = "cmastnewl2";
         query.FieldsList = "CMCUSTNO, CMNAME, CMADDR1, CMCITY, CMSTATE";
-        query.Rows = 400;
-        //query.Query = "CMSTATE = '{CMSTATE}'";
-        query.Query = "CMNAME >= '{CMNAME}'";
-        query.addQueryParm("CMNAME",state);
+        query.Rows = -1;
+        query.Query = "CMSTATE = '{CMSTATE}'";
+        query.addQueryParm("CMSTATE",state);
         query.addOrderBy("CMCITY",0);     
 
         return query;
    }
 
-   var query = getQueryResults("S");
+   var query = getQueryResults("AL");
     
     $("#grid-container").hide();
     
     $("#json-data-table")
         .removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
+
+    $("#customer-state").on('change',function() {
+        var state = $(this).val(); 
+        var query = getQueryResults(state);
+        ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack,alwaysCallBack);    
+    });
     
     function doneCallBack(json) {
         // This link helped!
@@ -35,20 +41,20 @@
                 { sWidth: "35%", mData: "CMADDR1" , stitle: "Address"},
                 { sWidth: "20%", mData: "CMCITY" , stitle: "City"},
                 { sWidth: "5%", mData: "CMSTATE", stitle: "State"}
-            ]
+            ],
+            aaSorting: [[3,'asc']],
+            bDestroy: true
         });
 
-        $("#json-data-table_length").after("<span> &nbsp;&nbsp;&nbsp;Showing " + json.rowCountPhrase + " records.</span>");
+        $("#json-data-table_length").after("<span> &nbsp;&nbsp;&nbsp;Showing " + json.rowCountPhrase + " records. Fetched in " + json.milliseconds + " milliseconds.</span>");
         
         $("#json-loading").hide();
         $("#grid-container").show();
-
     }
 
     function alwaysCallBack() {
         $("#json-loading").hide();    
     }
 
-    ASNAHelpers.ajax.postJson(query.url, query.getJson(), doneCallBack,alwaysCallBack);     
-
+    ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack,alwaysCallBack);    
 });

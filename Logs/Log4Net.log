@@ -83,3 +83,16 @@ INFO  2014-10-10 07:43:03,361 21791ms ExcelExport            CreateSpreadsheet  
 INFO  2014-10-10 07:44:42,664 121094ms Home                   Page_Load          - hello there
 INFO  2014-10-10 07:44:44,463 122893ms Home                   Page_Load          - hello there
 INFO  2014-10-10 07:44:44,464 122894ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-10-14 13:37:05,408 401920ms Home                   Page_Load          - hello there
+INFO  2014-10-14 13:37:14,496 411008ms Home                   Page_Load          - hello there
+INFO  2014-10-14 13:37:14,590 411102ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-10-15 15:20:11,771 202337ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:20:14,528 205095ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:20:14,541 205108ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-10-15 15:20:52,900 243467ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:54:02,828 2233395ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:54:05,671 2236237ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:54:05,673 2236239ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-10-15 15:56:00,358 52349ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:56:02,338 54329ms Home                   Page_Load          - hello there
+INFO  2014-10-15 15:56:02,408 54399ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.

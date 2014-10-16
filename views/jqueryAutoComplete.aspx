@@ -38,7 +38,18 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
-    <script src="../public/js/ASNAHelpers.QueryInputArgs.js"></script>
-    <script src="../public/js/jQueryAutoComplete.aspx.js"></script>
+
+    <%
+    If (HttpContext.Current.IsDebuggingEnabled)     
+    %>
+        <script src="../public/js/jQueryAutoComplete.aspx.js"></script>
+    <%
+    Else
+    %>
+        <script src="../public/js/jQueryAutoComplete.aspx.min.js"></script>
+    <%
+    EndIf 
+    %>
+
 </asp:Content>
 
