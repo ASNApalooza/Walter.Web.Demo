@@ -30,7 +30,6 @@ BegClass Home Partial(*Yes) Access(*Public) Extends(System.Web.UI.MasterPage)
         EndGet
     EndProp
 
-
     BegSr Page_Load Access(*Private) Event(*This.Load)
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)

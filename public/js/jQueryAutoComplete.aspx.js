@@ -9,6 +9,6 @@
     ACCustomerName.addQueryParm("CMNAME");
     ACCustomerName.addOption("labelTargetId", "textboxCustomerName");
     ACCustomerName.addOption("labelValueId", "textboxCustomerNumber");
-    ACCustomerName.addOption("showLabelOnScroll", true);
+    ACCustomerName.addOption("showLabelOnScroll", false);
     ASNAHelpers.autoComplete.registerQuery(ACCustomerName);
 });

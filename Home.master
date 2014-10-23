@@ -60,6 +60,7 @@
                                 <li><a href="JsonDataTable.aspx">Json DataTable</a></li>
                                 <li><a href="jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
                                 <li><a href="AutoComplete.json.html" target="_blank">Static AutoComplete Json</a></li>
+                                <li><a href="DataTable.json.html" target="_blank">Static DataTable Json</a></li>
                                 <li><a href="ExportToExcel.aspx">Export to Excel</a></li>
                             </ul>
                         </li>

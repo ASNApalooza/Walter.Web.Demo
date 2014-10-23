@@ -96,3 +96,6 @@ INFO  2014-10-15 15:54:05,673 2236239ms ExcelExport            CreateSpreadsheet
 INFO  2014-10-15 15:56:00,358 52349ms Home                   Page_Load          - hello there
 INFO  2014-10-15 15:56:02,338 54329ms Home                   Page_Load          - hello there
 INFO  2014-10-15 15:56:02,408 54399ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-10-16 15:40:34,566 296834ms Home                   Page_Load          - hello there
+INFO  2014-10-16 15:40:41,862 304130ms Home                   Page_Load          - hello there
+INFO  2014-10-16 15:40:41,883 304151ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.

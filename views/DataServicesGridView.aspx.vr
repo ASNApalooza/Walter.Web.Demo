@@ -21,8 +21,8 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
     DclFld DBNAME             Type(*String) 
 
     DclFld CurrentOrderBy Type(*Integer4)
-    DclFld CMNameValue   Type(*String)
-    DclFld CMCustNoValue Type(*Integer4) 
+    DclFld CMNameValue    Type(*String)
+    DclFld CMCustNoValue  Type(*Integer4) 
 
     BegEnum OrderBy 
         DclEnumFld Name
@@ -105,7 +105,6 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         Query.Args.Inputs.File         = "CmastNewL2"
         Query.Args.Inputs.FieldsList   = "CMCUSTNO,CMNAME"
         Query.Args.Inputs.Rows         = 12
-        Query.Args.Inputs.QueryType    = ASNA.Helpers.DataServices.QueryType.Paged
 
         If (CurrentOrderBy = OrderBy.Name) 
             Query.Args.Inputs.File      = "CmastNewL2"
@@ -125,20 +124,13 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         Query = *New ASNA.Helpers.DataServices.QueryDriver(DGDB) 
         ConfigureDataList(Query)
 
-        DclFld dt Type(DataTable)
-        DclFld x  Type(*Integer4) 
-
-        dt = Query.Exec() *As DataTable
-
         If (Query.Args.Error.ErrorException = *Nothing)
-            x = 6
+            gridviewCustomers.DataSource = Query.Exec() *As DataTable 
+            gridviewCustomers.DataBind()
+            SaveKeys(Query) 
         Else 
-            x = 5
-        EndIf 
 
-        gridviewCustomers.DataSource = Query.Exec() *As DataTable 
-        gridviewCustomers.DataBind()
-        SaveKeys(Query) 
+        EndIf
 
         DGDB.Close()
     EndSr
