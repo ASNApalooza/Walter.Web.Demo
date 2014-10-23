@@ -55,34 +55,6 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         CMCustNoValue = Number 
     EndSr
 
-    BegSr SaveKeys
-        DclSrParm Query Type(ASNA.Helpers.DataServices.QueryDriver)
-
-        DclFld x Type(*String) 
-
-        ForEach fk Type(QueryField) Collection(Query.Args.Outputs.EndingKeys) 
-            Viewstate["NEXT_"+ fk.FieldName.ToUpper()] = fk.FieldValue 
-        EndFor 
-    EndSr
-
-    BegSr RestoreKeys 
-        If (CurrentOrderBy = OrderBy.Name) 
-            *This.CMNameValue = Viewstate["NEXT_CMNAME"].ToString()
-            *This.CMCustNoValue = Viewstate["NEXT_CMCUSTNO"].ToString()
-        ElseIf (CurrentOrderBy = OrderBy.Number)
-            *This.CMCustNoValue = Viewstate["NEXT_CMCUSTNO"].ToString()
-        EndIf             
-    EndSr
-
-    BegSr Page_Unload Access(*Private) Event(*This.Unload)
-        DclSrParm sender Type(*Object)
-        DclSrParm e Type(System.EventArgs)
-
-        //
-        // Called when the page is unloaded.
-        //
-    EndSr
-
     BegSr gridviewCustomers_PreRender Access(*Private) Event(*This.gridviewCustomers.PreRender)
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
@@ -94,8 +66,10 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
-        RestoreKeys()
-        LoadGrid()
+        DclFld QueryState Type(*String) 
+
+        QueryState = Viewstate["queryState"].ToString() 
+        LoadGrid(QueryState) 
     EndSr
 
     BegSr ConfigureDataList
@@ -120,16 +94,27 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         DclFld DGDB     Type(AdgConnection) 
         DclFld Query    Type(ASNA.Helpers.DataServices.QueryDriver) 
 
+        LoadGrid(*Nothing) 
+    EndSr 
+    
+    BegSr LoadGrid
+        DclSrParm QueryState Type(*String) 
+
+        DclFld DGDB       Type(AdgConnection) 
+        DclFld Query      Type(ASNA.Helpers.DataServices.QueryDriver) 
+
         DGDB = *New AdgConnection(*This.DBName)
         Query = *New ASNA.Helpers.DataServices.QueryDriver(DGDB) 
-        ConfigureDataList(Query)
+        If (String.IsNullOrEmpty(QueryState)) 
+            ConfigureDataList(Query)
+            gridviewCustomers.DataSource = Query.Exec() *As DataTable 
+        Else 
+            gridviewCustomers.DataSource = Query.NextPage(QueryState) *As DataTable                      
+        EndIf 
 
         If (Query.Args.Error.ErrorException = *Nothing)
-            gridviewCustomers.DataSource = Query.Exec() *As DataTable 
+            Viewstate["queryState"] = Query.Args.Outputs.EncodedArgs
             gridviewCustomers.DataBind()
-            SaveKeys(Query) 
-        Else 
-
         EndIf
 
         DGDB.Close()
