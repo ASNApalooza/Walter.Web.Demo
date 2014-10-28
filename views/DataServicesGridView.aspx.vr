@@ -113,7 +113,7 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         EndIf 
 
         If (Query.Args.Error.ErrorException = *Nothing)
-            Viewstate["queryState"] = Query.Args.Outputs.EncodedArgs
+            Viewstate["queryState"] = Query.Args.Outputs.QueryState
             gridviewCustomers.DataBind()
         EndIf
 
