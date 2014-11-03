@@ -229,7 +229,12 @@
                 $("#" + this.labelTargetId).text(ui.item.value);            
             }
 
-            if (typeof(this.onSelect)== "function") {
+            if (e.keyCode == 13 || e.keyCode == 9) {
+                console.log("stopping prop");
+                e.stopPropagation();
+            }
+
+            if (typeof(this.onSelect) === "function") {
                 this.onSelect(e,ui);
             }
 
