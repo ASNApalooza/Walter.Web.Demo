@@ -57,11 +57,11 @@
                 console.log(JSON.stringify(originObject));
         }
 
-        function postJson(url, jsonToPost, successCallBack, alwaysCallBack, failCallBack) {
+        function postJson(url, jsonToPost, doneCallBack, alwaysCallBack, failCallBack) {
             var jqXHR = $.post(url, jsonToPost, function() {
             },"json")
               .done(function(json) {
-                  successCallBack(json);       
+                  doneCallBack(json);       
               })
               .fail(function (jqXHR,textStatus,errorThrown) {
                 if ( typeof(failCallBack) == "undefined") {
@@ -178,15 +178,11 @@
             this.labelTargetId = inputs.Options["labelTargetId"] || null;
             this.valueTargetId = inputs.Options["labelValueId"] || null;
             this.showLabelOnScroll = inputs.Options["showLabelOnScroll"] || false;   
-            this.onSelect = inputs.onSelect || null;
+            this.onSelect = inputs.Options["onSelect"] || null;
 
-            var successCallBack = function(json) {
+            var doneCallBack = function(json) {
                 if (json.list) {
                     if (json.list.length > 0) {
-                        if (typeof(inputs.onBeforeShowList) !== "undefined" && 
-                           (_.isFunction(inputs.onBeforeShowList))) {
-                            inputs.onBeforeShowList(json.list);
-                        }
                         add(json.list);
                     } else {
                         $(".ui-autocomplete-loading").addClass("my-ui-icon-alert");
@@ -204,7 +200,7 @@
             };
 
             var json = inputs.getJson();
-            ASNAHelpers.ajax.postJson(url,json,successCallBack,alwaysCallBack);
+            ASNAHelpers.ajax.postJson(url,json,doneCallBack,alwaysCallBack);
 
             restoreReplaceableQueryParmValues(inputs);
         },
@@ -229,8 +225,8 @@
                 $("#" + this.labelTargetId).text(ui.item.value);            
             }
 
-            if (typeof(this.onSelect)== "function") {
-                this.onSelect(e,ui);
+            if (typeof(this.onSelect) === "function") {
+                this.onSelect();
             }
 
             return result;
@@ -251,9 +247,12 @@
 
             saveReplaceableQueryParmValues(inputs);
             var autocompleteHelper = new AutoComplete();
+                    console.log("goodbye");       
 
             $("#" + inputs.Options["labelTargetId"]).autocomplete({
                 source: function(req,add) {                    
+                    // inputs.url = "../services/jsontest.ashx";
+                    console.log("hello");       
                     inputs.ownerId = this.element.context.id; 
                     inputs.QueryParms[0]["FieldValue"] = req.term;
                     autocompleteHelper.source(req,add,inputs);

@@ -17,15 +17,90 @@
     <div id="content-page-main">
         <div>
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div class="panel-body" role="form">
                     <div class="row">
+                        
                         <asp:Panel ID="Panel1" runat="server" CssClass="col-md-8">
                             <div class="input-group">
                                 <asp:TextBox ID="textboxCustomerName" cssclass="form-control" runat="server" placeholder="Customer name" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
                                 <br/>
                                 <asp:TextBox ID="textboxCustomerNumber" cssclass="form-control" runat="server" placeholder="Customer number" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
                             </div>
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                   <label for="form-Name" class="col-sm-2 control-label">Name</label>
+                                   <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="form-Name" />
+                                   </div>
+                                </div>
+
+                                <div class="form-group">
+                                   <label for="form-Address" class="col-sm-2 control-label">Address</label>
+                                   <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="form-Address" />
+                                   </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                   <label for="form-City" class="col-sm-2 control-label">City</label>
+                                   <div class="col-sm-6">
+                                      <input type="text" class="form-control" id="form-City" />
+                                   </div>
+                                   <label for="form-State" class="col-sm-2 control-label">State</label>
+                                   <div class="col-sm-2">
+                                      <input type="text" class="form-control" id="form-State" />
+                                   </div>
+                                </div>
+
+                                <div class="form-group">
+                                   <label for="form-PostalCode" class="col-sm-2 control-label">Zip code</label>
+                                   <div class="col-sm-4">
+                                      <input type="text" class="form-control" id="form-PostalCode" />
+                                   </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="col-sm-2 control-label">
+                                      <label>Active</label>
+                                  </div>
+                                  <div class="checkbox col-sm-10" style="">
+                                    <input type="checkbox" style="margin-left:2px;">
+                                 </div>
+                               </div>
+
+                                <div class="form-group">
+                                   <label for="form-Email" class="col-sm-2 control-label">Email</label>
+                                   <div class="col-sm-10">
+                                      <input type="email" class="form-control" id="form-Email" />
+                                   </div>
+                                </div>
+
+                                <div class="form-group">
+                                   <label for="form-Fax" class="col-sm-2 control-label">Fax</label>
+                                   <div class="col-sm-6">
+                                      <input type="text" class="form-control" id="form-Fax" />
+                                   </div>
+                                </div>
+
+                                <div class="form-group">
+                                   <label for="form-Phone" class="col-sm-2 control-label">Phone</label>
+                                   <div class="col-sm-6">
+                                      <input type="text" class="form-control" id="form-Phone" />
+                                   </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
                         </asp:Panel>
+
                         <div class="col-md-4">
                         </div>    
                     </div>
