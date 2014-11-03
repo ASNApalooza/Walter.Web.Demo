@@ -15,6 +15,9 @@ BegClass views_jqueryAutoComplete Partial(*Yes) Access(*Public) Extends(System.W
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
+        Page.Title = "Walter • AutoComplete"
+
+
         If (NOT Page.IsPostBack)
             //
             // Called the first time that the page is loaded.

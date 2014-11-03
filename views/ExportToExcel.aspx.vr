@@ -17,6 +17,7 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
 
         (*This.Master *As Home).logger.Info("hello there") 
 
+        Page.Title = "Walter • Excel"
 
         If (NOT Page.IsPostBack)
 
@@ -62,7 +63,7 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         Inputs.OrderBy.Add(*New ASNA.Helpers.DataServices.QueryOrderByField("CMNAME",0))
         Inputs.Options.Add("heading","Customer Listing  " + DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"))
         Inputs.Options.Add("worksheet_name","Customers")
-                
+
         Result = ex.CreateSpreadsheet(HttpContext.Current,Inputs) 
         If (Result) 
             // Spreadsheet creation was successful.

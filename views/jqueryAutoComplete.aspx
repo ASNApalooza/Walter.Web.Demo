@@ -21,10 +21,9 @@
                     <div class="row">
                         <asp:Panel ID="Panel1" runat="server" CssClass="col-md-8">
                             <div class="input-group">
-                                <asp:TextBox ID="textboxCustomerName" cssclass="form-control" runat="server" placeholder="Find customer" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
+                                <asp:TextBox ID="textboxCustomerName" cssclass="form-control" runat="server" placeholder="Customer name" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
                                 <br/>
-                                <asp:TextBox ID="textboxCustomerNumber" cssclass="form-control" runat="server" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
-
+                                <asp:TextBox ID="textboxCustomerNumber" cssclass="form-control" runat="server" placeholder="Customer number" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
                             </div>
                         </asp:Panel>
                         <div class="col-md-4">

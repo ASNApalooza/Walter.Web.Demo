@@ -15,6 +15,9 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
+        Page.Title = "Walter • Json"
+
+
         If (NOT Page.IsPostBack)
             //
             // Called the first time that the page is loaded.

@@ -33,7 +33,7 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
-        Page.Title = "DataList"
+        Page.Title = "Walter • DataTable"
         (*This.Master *As Home).PageHeading = "Walter: The AVR file object that's got your back!"
         DBNAME = (*This.Master *As Home).DBName
 
