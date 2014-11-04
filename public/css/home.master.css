@@ -17,8 +17,8 @@ body {
 }
 
 th {
-    background-color: #2d2d2d;
-    color: white;
+    background-color: #FFFFFF;
+    color: black;
 } 
 
 .table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
