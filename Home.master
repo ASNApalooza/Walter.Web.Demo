@@ -16,9 +16,11 @@
     <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css">
     <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/css/home.master.css">
-
+    
     <!-- Bootstrap adapter for JS DataTables -->
     <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css">
+
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~")%>public/css/rp-prettify.css" rel="stylesheet">
     <%
     Else
     %>
@@ -27,10 +29,6 @@
     EndIf 
     %>
     
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css"> -->
-    <!-- <link rel="stylesheet" href="/public/vendor/jquery-ui/themes/smoothness/theme.css"> -->
-
    	<asp:contentplaceholder id="ContentPlaceHolderHeader" runat="server"></asp:contentplaceholder> 
 </head>
 
@@ -107,16 +105,24 @@
 
         <!-- JsonDataTable.aspx content page -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/JsonDataTable.aspx.js"></script>
+
+        <!-- Google prettify -->
+        <script src="<%=Page.ResolveUrl("~")%>public/js/prettify.js"></script>
+
     <% Else %>        
         <script src="<%=Page.ResolveUrl("~")%>public/site.compressed.js"></script>
     <% EndIf %>
     
     <script>
+    $(function(){
         // Avoid jQueryUI/Bootstrap component conflicts.            
         var btn = $.fn.button.noConflict(); // return $.fn.button to previously assigned value
         $.fn.btn = btn;
         // $(selector).button() is jQuery UI.
         // $(selector).btn() is Bootstrap.
+
+        prettyPrint();            
+    });
     </script>
 
 	<asp:contentplaceholder id="ContentPlaceHolderPageBottom" runat="server"></asp:contentplaceholder> 

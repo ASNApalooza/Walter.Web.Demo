@@ -14,7 +14,7 @@
                 <div class="panel-heading">
                   <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                      Customer selection criteria
+                      <i class="fa fa-filter"></i>&nbsp;Filter customers
                     </a>
                   </h4>
                 </div>
@@ -47,7 +47,6 @@
             <tbody>
             </tbody>
         </table>
-
     </div>
 </div>
 

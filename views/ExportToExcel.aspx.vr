@@ -20,20 +20,7 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         Page.Title = "Walter • Excel"
 
         If (NOT Page.IsPostBack)
-
-
-            If (Request.QueryString["error"] <> *Nothing)
-                ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showExcelError()", *True)
-            EndIf 
-
-
-            //
-            // Called the first time that the page is loaded.
-            //
         Else
-            //
-            // Called subsequent times that the page is displayed.
-            //
         EndIf
     EndSr
 
@@ -41,14 +28,11 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
-        //
-        // Called when the page is unloaded.
-        //
     EndSr
 
-	BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExportToExcel.Click)
-		DclSrParm sender Type(*Object)
-		DclSrParm e Type(System.EventArgs)
+    BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExportToExcel.Click)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
 
         DclFld Inputs Type(ASNA.Helpers.DataServices.QueryFileInstanceArgs.InputArgs) New()
         DclFLd ex     Type(ASNA.Helpers.ASPNET.ExcelExport) New()
@@ -68,8 +52,7 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         If (Result) 
             // Spreadsheet creation was successful.
         Else 
-            // Spreadsheet creation failed.
-        EndIf
-		
-	EndSr
+             ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showExcelError()", *True)
+        EndIf        
+    EndSr
 EndClass

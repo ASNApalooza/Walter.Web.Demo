@@ -166,6 +166,14 @@
         this.showLabelOnScroll = null;
     }
 
+    var prepareListElement = function(fn, list) {
+        if (typeof(fn) !== "undefined" && (_.isFunction(fn))) {
+            _.each(list,function(element,index,list) {
+                fn(element);
+            });
+        }
+    };
+
     AutoComplete.prototype = {
         source: 
         function(req,add,inputs) {
@@ -183,15 +191,12 @@
             var successCallBack = function(json) {
                 if (json.list) {
                     if (json.list.length > 0) {
-                        if (typeof(inputs.onBeforeShowList) !== "undefined" && 
-                           (_.isFunction(inputs.onBeforeShowList))) {
-                            inputs.onBeforeShowList(json.list);
-                        }
+                        prepareListElement(inputs.onPrepareListElement,json.list);
                         add(json.list);
                     } else {
                         $(".ui-autocomplete-loading").addClass("my-ui-icon-alert");
                     }
-                }
+                }    
                 else if (json.error) {
                     console.log(json.error.message);
                     if (! _.isUndefined(json.error.note)) console.log(json.error.note); 
@@ -219,6 +224,7 @@
             // can't ever not be the labelTargetId can it? this.ownerId isn't 
             // good for anything! I think. 
             var result = true;
+            var ENTER_KEY = 13;
 
             if (this.valueTargetId) {
                 $("#" + this.valueTargetId).text(ui.item.value);
@@ -229,13 +235,15 @@
                 $("#" + this.labelTargetId).text(ui.item.value);            
             }
 
-            if (e.keyCode == 13 || e.keyCode == 9) {
-                console.log("stopping prop");
-                e.stopPropagation();
-            }
-
             if (typeof(this.onSelect) === "function") {
                 this.onSelect(e,ui);
+            }
+
+            if (e.keyCode == ENTER_KEY) {
+                // Eat the enter if used to select an entry 
+                // in the AutoComplete's list. This is especially 
+                // important for Wings apps.
+                e.stopPropagation();
             }
 
             return result;

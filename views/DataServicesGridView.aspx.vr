@@ -76,7 +76,6 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         DclSrParm Query     Type(ASNA.Helpers.DataServices.QueryDriver)
 
         Query.Args.Inputs.Library      = "examples"
-        Query.Args.Inputs.File         = "CmastNewL2"
         Query.Args.Inputs.FieldsList   = "CMCUSTNO,CMNAME"
         Query.Args.Inputs.Rows         = 12
 
@@ -104,6 +103,7 @@ BegClass views_DataServicesGridView Partial(*Yes) Access(*Public) Extends(System
         DclFld Query      Type(ASNA.Helpers.DataServices.QueryDriver) 
 
         DGDB = *New AdgConnection(*This.DBName)
+        DGDB.Open()
         Query = *New ASNA.Helpers.DataServices.QueryDriver(DGDB) 
         If (String.IsNullOrEmpty(QueryState)) 
             ConfigureDataList(Query)

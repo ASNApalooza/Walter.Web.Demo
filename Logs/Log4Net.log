@@ -100,3 +100,47 @@ INFO  2014-10-16 15:40:34,566 296834ms Home                   Page_Load         
 INFO  2014-10-16 15:40:41,862 304130ms Home                   Page_Load          - hello there
 INFO  2014-10-16 15:40:41,883 304151ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
 INFO  2014-10-30 23:35:38,693 328474ms Home                   Page_Load          - hello there
+INFO  2014-11-05 17:11:41,057 18997ms Home                   Page_Load          - hello there
+INFO  2014-11-05 17:11:44,211 22151ms Home                   Page_Load          - hello there
+INFO  2014-11-05 17:11:44,232 22172ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-06 07:39:18,375 168459ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:42:21,834 351918ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:42:36,852 366936ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:43:06,145 396229ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:44:15,253 465337ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:44:48,368 498452ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:47:35,876 665960ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:48:48,297 738381ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:49:38,663 788747ms Home                   Page_Load          - hello there
+INFO  2014-11-06 07:50:17,046 827130ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:27:33,245 13582ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:32:15,514 295851ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:32:55,564 335901ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:32:59,945 340282ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:34:25,873 426211ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:37:27,823 608161ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:50:19,170 1379507ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:55:19,743 1680080ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:55:29,008 1689345ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:56:44,922 1765259ms Home                   Page_Load          - hello there
+INFO  2014-11-06 08:57:57,045 1837382ms Home                   Page_Load          - hello there
+INFO  2014-11-06 09:02:12,492 2092830ms Home                   Page_Load          - hello there
+INFO  2014-11-06 09:07:08,777 2389114ms Home                   Page_Load          - hello there
+INFO  2014-11-06 09:07:11,099 2391436ms Home                   Page_Load          - hello there
+INFO  2014-11-06 09:07:11,131 2391469ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-06 09:07:11,418 2391755ms ExcelExport            CreateSpreadsheet  - QueryFile exception
+ASNA.DataGate.Common.dgException: Object Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, String QueryFile, String Query, String[] QueryKeys, KeyUsages[] QueryUsages)
+   at ASNA.DataGate.Client.FileAdapter.OpenSimpleQuery(AdgDataSet& Ds, String QueryFile, String Query, String[] KeyNames, KeyUsages[] KeyFlags)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithSimpleQuery(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 173
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 62
+   at ASNA.Helpers.DataServices.QueryFile.Exec() in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 353
+INFO  2014-11-06 09:09:08,456 2508793ms Home                   Page_Load          - hello there
+INFO  2014-11-06 09:09:08,457 2508794ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-06 09:29:25,981 880366ms Home                   Page_Load          - hello there
+INFO  2014-11-06 10:32:03,409 54270ms Home                   Page_Load          - hello there
