@@ -55,7 +55,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="DataServicesGridView.aspx">DataList in GridView</a></li>
-                                <li><a href="JsonDataTable.aspx">Json DataTable</a></li>
+                                <li><a href="JsonDataTableClientSideSelect.aspx">Json DataTable • Client-side select</a></li>
+                                <li><a href="JsonDataTableServerSideSelect.aspx">Json DataTable • Server-side select</a></li>
                                 <li><a href="jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
                                 <li><a href="AutoComplete.json.html" target="_blank">Static AutoComplete Json</a></li>
                                 <li><a href="DataTable.json.html" target="_blank">Static DataTable Json</a></li>

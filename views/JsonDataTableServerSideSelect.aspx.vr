@@ -10,18 +10,15 @@ Using System.Web.UI.WebControls.WebParts
 Using System.Web.UI.HtmlControls
 Using ASNA.DataGate.Client
 
-
-BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI.Page)
-
+BegClass views_JsonDataTableServerSideSelect Partial(*Yes) Access(*Public) Extends(System.Web.UI.Page)
     BegSr Page_Load Access(*Private) Event(*This.Load)
         DclSrParm sender Type(*Object)
         DclSrParm e Type(System.EventArgs)
 
         Page.Title = "Walter • Json"
 
-
         If (NOT Page.IsPostBack)
-            //PopulateStatesList()
+            PopulateStatesList()
             //
             // Called the first time that the page is loaded.
             //
@@ -70,8 +67,8 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
         EndIf 
         db.Close()
 
-        //stateList.Items.AddRange(ListItems) 
-        //stateList.SelectedIndex = 0
+        stateList.Items.AddRange(ListItems) 
+        stateList.SelectedIndex = 0
     EndSr
 
 EndClass

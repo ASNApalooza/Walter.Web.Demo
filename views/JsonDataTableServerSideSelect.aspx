@@ -1,10 +1,10 @@
-﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="JsonDataTable.aspx.vr" Inherits="views_JsonDataTable" Title="Untitled Page" %>
+﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="JsonDataTableServerSideSelect.aspx.vr" Inherits="views_JsonDataTableServerSideSelect" Title="Untitled Page" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
-
 <div>
-
     <div class="col-md-3">
         <h3>Using Walter in a traditional ASP.NET page</h3>
         <p>This page shows how you can use Walter to provide a DataTable to an ASP.NET 
@@ -33,11 +33,10 @@
                             <h4 class="panel-title"><a data-parent="#accordion" data-toggle="collapse" href="#collapseOne"><i class="fa fa-filter"></i>&nbsp;Filter customers</a></h4> </div>
                         <div class="panel-collapse collapse" id="collapseOne">
                             <div class="panel-body"> Select customer state
-                                <select id="stateList"> </select>
+                                <asp:DropDownList ID="stateList" ClientIDMode="Static" runat="server"></asp:DropDownList>
                                 <div id="query-metrics"></div>
                             </div>
                         </div>
-                        <!-- collapse -->
                     </div>
                 </div>
             </div>
@@ -68,12 +67,12 @@
     <script src="../public/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>                
     <script src="../public/js/ASNAHelpers.QueryInputArgs.js"></script>
     -->
-    <script src="../public/js/JsonDataTable.aspx.js"></script>
+    <script src="../public/js/JsonDataTableServerSideSelect.aspx.js"></script>
     <script src="../public/js/stopwatch.js"></script>
     <%
     Else
     %>
-    <script src="../public/js/JsonDataTable.aspx.min.js"></script>    
+    <script src="../public/js/JsonDataTableServerSideSelect.aspx.min.js"></script>    
     <%
     EndIf 
     %>
