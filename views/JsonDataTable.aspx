@@ -40,22 +40,11 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
                       <div class="panel-body">
-                        Select customer state
-                        <asp:DropDownList ID="stateList" ClientIDMode="Static" runat="server" CssClass="customer-state-list"></asp:DropDownList>
-                        
-                        <%--<select id="customer-state">--%>
-                        <!--
-                            <option value="AL">Alabama</option>
-                            <option value="CA">California</option>
-                            <option value="IN">Indiana</option>
-                            <option value="MI">Michigan</option>
-                            <option value="OH">Ohio</option>
-                            <option value="TX">Texas</option>
-                            -->
-                        <%--</select>--%>
+                        Select customer state 
+                        <select id="stateList"/>
                         <div id="query-metrics"></div>
                       </div>
-                    </div>
+                    </div> <!-- collapse -->
                   </div>
                 </div>
             </div>
@@ -72,7 +61,7 @@
                 <tbody>
                 </tbody>
             </table>
-        </div>
+        </div> <!-- #grid-container-->
     </div>
 </div>
 

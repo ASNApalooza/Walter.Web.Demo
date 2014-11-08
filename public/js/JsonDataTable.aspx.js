@@ -11,7 +11,7 @@
       };
     }
 
-    function populateDropDown(query) {
+    function populateSelectTag(query) {
         query.url = "../services/jsonservice.ashx";
         query.cacheList = query.cacheList || true;
         query.raiseChangeEvent = query.raiseChangeEvent || false;
@@ -85,7 +85,7 @@
    //}
    
     function getQueryResults(state) {
-        var query = new ASNAHelpers.QueryInputArgs();
+        var query = new ASNAHelpers.QueryInputArgs()
         query.url = "../services/jsonservice.ashx";
         query.Library = "examples";
         query.File = "cmastnewl2";
@@ -124,13 +124,13 @@
         $("#json-loading").hide();    
     }
        
-    $("#grid-container").show();
+    $("#grid-container").hide();
     
     $("#json-data-table")
         .removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
 
-    $(".customer-state-list").on('change',function() {
+    $("#stateList").on('change',function() {
         console.log('change event');
         var state = $(this).val(); 
         var query = getQueryResults(state);
@@ -145,13 +145,14 @@
         stateQuery.FieldsList = "State:text, Abbrev:value";
         stateQuery.Rows = -1;
         stateQuery.addQueryParm("State");
+        stateQuery.targetSelectId = "stateList";
+        
         stateQuery.cacheList = true;
-        stateQuery.targetSelectId = "customer-state";
-        stateQuery.selectedValue = "AL";
+        stateQuery.selectedValue = "IN";
         stateQuery.raiseChangeEvent = true;
 
-        populateDropDown(stateQuery);
-    };
+        populateSelectTag(stateQuery);
+    }();
        
-    $(".customer-state-list").val("AL").change();
+    //$("#stateList").val("AL").change();
 });

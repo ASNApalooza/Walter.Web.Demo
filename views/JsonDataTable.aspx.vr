@@ -21,7 +21,7 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
 
 
         If (NOT Page.IsPostBack)
-            PopulateStatesList()
+            //PopulateStatesList()
             //
             // Called the first time that the page is loaded.
             //
@@ -70,8 +70,8 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
         EndIf 
         db.Close()
 
-        stateList.Items.AddRange(ListItems) 
-        stateList.SelectedIndex = 0
+        //stateList.Items.AddRange(ListItems) 
+        //stateList.SelectedIndex = 0
     EndSr
 
 EndClass
