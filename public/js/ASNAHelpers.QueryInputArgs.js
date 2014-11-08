@@ -1,5 +1,4 @@
 ﻿(function (globals) {
-
     var ASNAHelpers = globals.ASNAHelpers = (globals.ASNAHelpers || {});
 
     // QueryInputArgs is a JavaScript object that corresponds to the 
@@ -58,23 +57,21 @@
         }
 
         function postJson(url, jsonToPost, successCallBack, alwaysCallBack, failCallBack) {
-            var jqXHR = $.post(url, jsonToPost, function() {
-            },"json")
-              .done(function(json) {
+            var jqXHR = $.post(url, jsonToPost,"json")
+            .done(function(json) {
                   successCallBack(json);       
-              })
-              .fail(function (jqXHR,textStatus,errorThrown) {
+            })            
+            .fail(function (jqXHR,textStatus,errorThrown) {
                 if ( typeof(failCallBack) == "undefined") {
                     var originObject = this;
                     ASNAHelpers.ajax.failCallBack(jqXHR,originObject);
-                    //console.log(textStatus);
                 }
                 else {
                     var originObject = this;
-                    failCallBack(jqXHR,originObject);
+                    failCallBack(jqXHR,originObject);                
                 }
-              })
-              .always(function() {
+            })                    
+            .always(function() {
                 if ( typeof(alwaysCallBack) != "undefined") {
                     alwaysCallBack();
                 }

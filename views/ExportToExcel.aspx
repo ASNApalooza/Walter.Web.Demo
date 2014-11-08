@@ -4,15 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 <div class="col-md-3">
     <h3>Excel export</h3>
-    <p>This page shows how you might use Walter to provide a datatable to an ASP.NET 
-       ASPX page for use with the GridView (or any other data-aware control).</p>
-    <p>One of the things the DataList does very well is let you easily change access paths at runtime. As
-       the user selects how to display and position the list, different logical files are being used 
-       to creating the underlying DataTable. While this example uses two position types, you could easily
-       snap in others.       
+    <p>This page shows how you can use Walter to export query results to an Excel spreadsheet. Walter takes care
+     of all the grunge of transforming the spreadsheet into a memory stream and then pushing it out as a response
+     with the <a href="http://filext.com/faq/office_mime_types.php">correct mime type.</a>  
+    </p>
+    <p>If an error occurs generating the spreadsheet, the error is logged (this app is using the <a href="http://logging.apache.org/log4net/">Apache Log4Net
+    logger</a>) and an error message is shown to the user. <a href="#" id="demo-show-excel-error">Click here</a> see what that error message looks like.
     </p>
     <p><!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-excel btn-lg" data-toggle="modal" data-target="#myModal">
             Show source code
             </button>
     </p>
@@ -26,7 +26,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div>
-
 <%-- 
                                 <input type="text" name="library"        id="library" required="required" value="examples" /><br />
                                 <input type="text" name="file"           id="file" required="required"  value="CMastNewL2" /><br />
@@ -36,7 +35,7 @@
                                 <input type="text" name="qryFld0"        required="required"  value="@cmcustno:i'0'" /><br />
 --%>
                                 <img src="../public/images/excel.jpg" />
-                                <asp:LinkButton ID="linkbuttonExportToExcel" runat="server" ClientIDMode="Static">Export customer list Excel</asp:LinkButton>
+                                <asp:LinkButton ID="linkbuttonExportToExcel" role="button" cssclass="btn btn-sm btn-excel active" runat="server" ClientIDMode="Static">Export customer list Excel</asp:LinkButton>
                             </div>    
                         </div>    
                     </div>
@@ -56,7 +55,7 @@
       </div>
       <div class="modal-body">
 
-<p>This is the entire source it takes to generate a an Excel spreadsheet. The namespace ASNA.Helpers.ASPNET provides several ASP.NET-specific 
+<p>This is the <em>entire source</em> it takes to generate an Excel spreadsheet. The namespace ASNA.Helpers.ASPNET provides several ASP.NET-specific 
 capabilities for Walter. Its ExcelExport class does all the work to render a Walter-created Excel spreadsheet over HTTP.</p>  
 
 <pre class="prettyprint linenums">
@@ -82,6 +81,8 @@ BegSr linkbuttonExportToExcel_Click Access(*Private) Event(*This.linkbuttonExpor
     If (Result) 
         // Spreadsheet creation was successful.
     Else 
+        (*This.Master *As Home).logger.Info("Error writing Excel spreadsheet.")             
+        (*This.Master *As Home).logger.Info(ex.ErrorException.Message) 
         ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showExcelError()", *True)
     EndIf        
 EndSr
@@ -97,7 +98,13 @@ EndSr
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
-
+    <script>
+    $(function(){
+        $("#demo-show-excel-error").on("click",function(){
+            showExcelError();
+        });        
+    });
+    </script>
     <%
     If (HttpContext.Current.IsDebuggingEnabled)     
     %>

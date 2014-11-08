@@ -52,6 +52,8 @@ BegClass views_ExportToExcel Partial(*Yes) Access(*Public) Extends(System.Web.UI
         If (Result) 
             // Spreadsheet creation was successful.
         Else 
+            (*This.Master *As Home).logger.Info("Error writing spreadsheet.")             
+            (*This.Master *As Home).logger.Info(ex.ErrorException.Message) 
              ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showExcelError()", *True)
         EndIf        
     EndSr

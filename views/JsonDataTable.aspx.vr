@@ -8,6 +8,8 @@ Using System.Web.UI
 Using System.Web.UI.WebControls
 Using System.Web.UI.WebControls.WebParts
 Using System.Web.UI.HtmlControls
+Using ASNA.DataGate.Client
+
 
 BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI.Page)
 
@@ -19,6 +21,7 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
 
 
         If (NOT Page.IsPostBack)
+            PopulateStatesList()
             //
             // Called the first time that the page is loaded.
             //
@@ -36,6 +39,39 @@ BegClass views_JsonDataTable Partial(*Yes) Access(*Public) Extends(System.Web.UI
         //
         // Called when the page is unloaded.
         //
+    EndSr
+
+    BegSr PopulateStatesList
+        DclFld ActiveDBName  Type(*String)
+        DclFld DBName        Type(*String) 
+
+        ActiveDBName = System.Configuration.ConfigurationManager.AppSettings["ActiveDBName"]
+        DBName = System.Configuration.ConfigurationManager.AppSettings[ActiveDBName]
+
+        DclFld db           Type(ASNA.DataGate.Client.AdgConnection)        
+        DclFld Query        Type(ASNA.Helpers.DataServices.QueryDriver)
+        DclFld dt           Type(DataTable) 
+        DclArray ListItems  Type(System.Web.UI.WebControls.ListItem) Rank(1)
+
+        db = *New AdgConnection(DBNAME) 
+        db.Open()
+        Query = *New ASNA.Helpers.DataServices.QueryDriver(db)
+        Query.Args.Inputs.Library      = "examples"
+        Query.Args.Inputs.File         = "states"
+        Query.Args.Inputs.FieldsList   = "State:text,Abbrev:value"
+        Query.Args.Inputs.Rows         = -1
+        Query.OverrideAdapter(*New ASNA.Helpers.DataServices.ToLisItemArrayAdapter(Query.Args))
+
+        ListItems = Query.Exec() *As System.Web.UI.WebControls.ListItem[]
+        // The array of ListItems is now available. Generally you'll use a ComboBox 
+        // or DropDownList's AddRange() method to assign this array.
+        If (Query.Args.Error.ErrorException <> *Nothing)
+            // Work with exception here
+        EndIf 
+        db.Close()
+
+        stateList.Items.AddRange(ListItems) 
+        stateList.SelectedIndex = 0
     EndSr
 
 EndClass

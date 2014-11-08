@@ -103,9 +103,6 @@
         <!-- ASNA.Helpers.DataServices JS interface -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/ASNAHelpers.QueryInputArgs.js"></script>
 
-        <!-- JsonDataTable.aspx content page -->
-        <script src="<%=Page.ResolveUrl("~")%>public/js/JsonDataTable.aspx.js"></script>
-
         <!-- Google prettify -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/prettify.js"></script>
 

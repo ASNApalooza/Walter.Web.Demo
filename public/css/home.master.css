@@ -54,3 +54,16 @@ input[type=text], input[type=password], input[type=email], input[type=number] {
 .my-ui-icon-alert {
     background: white url('../images/icon-alert.png') right center no-repeat;
 }
+
+.btn-excel {
+  color: #fff;
+  background-color: #1F7745;
+  border-color: #1F7745;
+}
+
+.btn-excel:hover {
+  color: #fff;
+  background-color: #15542f;
+  border-color: #15542f;
+}
+

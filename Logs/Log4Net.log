@@ -144,3 +144,44 @@ INFO  2014-11-06 09:09:08,456 2508793ms Home                   Page_Load        
 INFO  2014-11-06 09:09:08,457 2508794ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
 INFO  2014-11-06 09:29:25,981 880366ms Home                   Page_Load          - hello there
 INFO  2014-11-06 10:32:03,409 54270ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:21:18,692 454040ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:31:54,543 1089891ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:51:55,199 2290547ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:52:51,719 2347068ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:52:53,431 2348779ms Home                   Page_Load          - hello there
+INFO  2014-11-06 21:52:53,466 2348814ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-06 21:52:54,220 2349569ms ExcelExport            CreateSpreadsheet  - QueryFile exception
+ASNA.DataGate.Common.dgException: File Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, String QueryFile, String Query, String[] QueryKeys, KeyUsages[] QueryUsages)
+   at ASNA.DataGate.Client.FileAdapter.OpenSimpleQuery(AdgDataSet& Ds, String QueryFile, String Query, String[] KeyNames, KeyUsages[] KeyFlags)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithSimpleQuery(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 173
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 62
+   at ASNA.Helpers.DataServices.QueryFile.Exec() in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 353
+INFO  2014-11-06 21:52:54,222 2349571ms Home                   xportToExcel_Click - Error writing spreadsheet.
+INFO  2014-11-06 21:52:54,222 2349571ms Home                   xportToExcel_Click - File Not Found
+INFO  2014-11-06 21:58:49,333 11042ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:01:12,538 154246ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:09:41,362 663071ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:10:12,002 693711ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:11:06,281 747989ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:11:36,011 777720ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:11:46,941 788649ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:13:33,960 895668ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:15:51,216 1032925ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:17:41,313 1143021ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:17:43,232 1144940ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:18:42,706 1204414ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:19:11,410 1233118ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:22:07,819 1409527ms Home                   Page_Load          - hello there
+INFO  2014-11-06 22:23:01,802 1463510ms Home                   Page_Load          - hello there
+INFO  2014-11-07 07:56:30,833 219500ms Home                   Page_Load          - hello there
+INFO  2014-11-07 07:56:34,188 222854ms Home                   Page_Load          - hello there
+INFO  2014-11-07 07:56:34,227 222894ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-07 07:58:35,823 344490ms Home                   Page_Load          - hello there
+INFO  2014-11-07 07:58:51,347 360014ms Home                   Page_Load          - hello there
+INFO  2014-11-07 07:59:31,317 399983ms Home                   Page_Load          - hello there
