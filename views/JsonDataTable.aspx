@@ -22,33 +22,26 @@
 
     </div>
     <div class="col-md-9">
-
-
         <div id="json-loading">
             Loading customers... <img src="../public/images/concentric-spinner.gif" />
         </div>
         <div id="grid-container">
             <div>
                 <div class="panel-group" id="accordion">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          <i class="fa fa-filter"></i>&nbsp;Filter customers
-                        </a>
-                      </h4>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a data-parent="#accordion" data-toggle="collapse" href="#collapseOne"><i class="fa fa-filter"></i>&nbsp;Filter customers</a></h4> </div>
+                        <div class="panel-collapse collapse" id="collapseOne">
+                            <div class="panel-body"> Select customer state
+                                <select id="stateList"> </select>
+                                <div id="query-metrics"></div>
+                            </div>
+                        </div>
+                        <!-- collapse -->
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        Select customer state 
-                        <select id="stateList"/>
-                        <div id="query-metrics"></div>
-                      </div>
-                    </div> <!-- collapse -->
-                  </div>
                 </div>
             </div>
-            <table id="json-data-table" cellspacing="0" width="100%" class="jsonTable">
+            <table cellspacing="0" class="jsonTable" id="json-data-table" width="100%">
                 <thead>
                     <tr>
                         <th>Number</th>
@@ -58,17 +51,15 @@
                         <th>State</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
-        </div> <!-- #grid-container-->
+        </div>
+        <!-- #grid-container-->
     </div>
 </div>
-
-
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
 
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageBottom" Runat="Server">
     <%
     If (HttpContext.Current.IsDebuggingEnabled)     
     %>
@@ -86,7 +77,4 @@
     <%
     EndIf 
     %>
-
-
 </asp:Content>
-

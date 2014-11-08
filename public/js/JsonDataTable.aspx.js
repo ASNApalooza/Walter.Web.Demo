@@ -31,8 +31,11 @@
             if (! _.isUndefined(query.selectedValue)) {
                 options.val(query.selectedValue);
             }
+            else {
+                options.val(json.list[0].value);
+            }
 
-            if ((! _.isUndefined(query.selectedValue)) && (query.raiseChangeEvent)) {
+            if (query.raiseChangeEvent) {
                 options.change();
             }
         };
@@ -48,41 +51,6 @@
             ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack,alwaysCallBack);    
         }
     }
-    
-   // function getStatesList(optionsId, afterLoadList) {
-   //     var sw = new Stopwatch();
-   //     sw.start();
-   //     var query = new ASNAHelpers.QueryInputArgs();
-   //     query.url = "../services/jsonservice.ashx";
-   //     query.Library = "examples";
-   //     query.File = "states";
-   //     query.FieldsList = "State, Abbrev";
-   //     query.Rows = -1;
-   //     query.addQueryParm("State");
-
-   //     var options = $("#customer-state");
-   //     var doneCallBack = function(json) {
-   //         _.each(json.list, function(element,index,list) {
-   //             options.append($("<option />").val(element.Abbrev).text(element.State));
-   //         });
-
-   //         sw.stop();
-   //         console.log(sw.elapsedMS());
-   //         sessionStorage.setItem("states_list",JSON.stringify(json));    
-   //         options.val(json.list[0].Abbrev).change();
-   //     };
-
-   //     var alwaysCallBack = function() {            
-   //     };
-
-   //     if (sessionStorage.getItem("states_list")) {
-   //         var json = JSON.parse(sessionStorage.getItem("states_list"));        
-   //         doneCallBack(json);
-   //     }
-   //     else {
-   //         ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack,alwaysCallBack);    
-   //     }
-   //}
    
     function getQueryResults(state) {
         var query = new ASNAHelpers.QueryInputArgs()
