@@ -10,4 +10,35 @@
         });
       };
     }
+
+    function populateSelectTag(query) {
+        query.url = "../services/jsonservice.ashx";
+        query.cacheList = query.cacheList || true;
+        query.raiseChangeEvent = query.raiseChangeEvent || false;
+
+        var options = $("#" + query.targetSelectId);
+        var cacheKey = query.targetSelectId + "_cache";
+
+        var doneCallBack = function(json) {
+            _.each(json.list, function(element,index,list) {
+                options.append($("<option />").val(element.value).text(element.text));
+            });
+
+            if (query.cacheList) {
+                sessionStorage.setItem(cacheKey,JSON.stringify(json));    
+            }
+
+            if (! _.isUndefined(query.selectedValue)) {
+                options.val(query.selectedValue);
+            }
+            else {
+                options.val(json.list[0].value);
+            }
+
+            if (query.raiseChangeEvent) {
+                options.change();
+            }
+        };
+    }
+
 })(this);

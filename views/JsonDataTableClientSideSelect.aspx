@@ -68,6 +68,7 @@
     <script src="../public/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>                
     <script src="../public/js/ASNAHelpers.QueryInputArgs.js"></script>
     -->
+    <script src="../public/js/JsonDataTableCommon.js"></script>
     <script src="../public/js/JsonDataTableClientSideSelect.aspx.js"></script>
     <script src="../public/js/stopwatch.js"></script>
     <%
