@@ -1,4 +1,8 @@
 ﻿$(function () {   
+    
+    document.title = "Walter • Client side";
+
+
     var populateStateList = function() {
         var stateQuery = new ASNAHelpers.QueryInputArgs();
         stateQuery.Library = "examples";

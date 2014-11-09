@@ -11,7 +11,7 @@
       };
     }
 
-    function populateSelectTag(query) {
+    globals.populateSelectTag = function(query) {
         query.url = "../services/jsonservice.ashx";
         query.cacheList = query.cacheList || true;
         query.raiseChangeEvent = query.raiseChangeEvent || false;
@@ -39,6 +39,14 @@
                 options.change();
             }
         };
-    }
+
+        if (query.cacheList && sessionStorage.getItem(cacheKey)) {
+            var json = JSON.parse(sessionStorage.getItem(cacheKey));        
+            doneCallBack(json);
+        }
+        else {
+            ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack);    
+        }
+    };
 
 })(this);

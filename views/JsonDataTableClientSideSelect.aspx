@@ -7,13 +7,13 @@
 <div>
 
     <div class="col-md-3">
-        <h3>Using Walter in a traditional ASP.NET page</h3>
-        <p>This page shows how you can use Walter to provide a DataTable to an ASP.NET 
-           ASPX page for use with the GridView (or any other data-aware control).</p>
-        <p>One of the things the DataList does very well is let you easily change access paths at runtime. As
-           the user selects how to display and position the list, different logical files are being used 
-           to creating the underlying DataTable. While this example uses two position types, you could easily
-           snap in others.       
+        <h3>Populate a grid with Json</h3>
+        <p>This page shows how you can use Walter to fetch Json from the client side. There isn't <em>any</em> server
+        side code used on this page. The state list dropdown (in the 'Filter customers' panel) and the customer 
+        grid are both populated with JavaScript and Ajax using Walter queries. 
+        </p>
+        <p>For this example, the superb <a href="http://www.datatables.net/">jQuery DataTables</a> plug-in is used to render the grid. In addition to many 
+        great features, this plug-in also provides great Bootstrap support. 
         </p>
         <p><!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
