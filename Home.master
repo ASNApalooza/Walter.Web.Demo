@@ -103,6 +103,7 @@
 
         <!-- ASNA.Helpers.DataServices JS interface -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/ASNAHelpers.QueryInputArgs.js"></script>
+        <script src="<%=Page.ResolveUrl("~")%>public/js/ASNAmiscellaneous.js"></script>
 
         <!-- Google prettify -->
         <script src="<%=Page.ResolveUrl("~")%>public/js/prettify.js"></script>

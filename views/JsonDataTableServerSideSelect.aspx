@@ -25,7 +25,7 @@
         <div id="json-loading">
             Loading customers... <img src="../public/images/concentric-spinner.gif" />
         </div>
-        <div id="grid-container">
+        <div id="grid-container" class="hide">
             <div>
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
