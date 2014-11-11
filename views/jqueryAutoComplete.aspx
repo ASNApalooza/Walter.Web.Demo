@@ -1,6 +1,12 @@
 ﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="jqueryAutoComplete.aspx.vr" Inherits="views_jqueryAutoComplete" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
 </asp:Content>
+
+
+<asp:Content ID="Content4" ContentPlaceHolderID="PageHeadingPlaceHolder" Runat="Server">
+<h3>Customer lookup with the jQuery AutoComplete</h3>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 <div class="col-md-3">
     <h3>jQuery AutoComplete</h3>
@@ -21,18 +27,11 @@
                     <div class="row">
                         
                         <asp:Panel ID="Panel1" runat="server" CssClass="col-md-8">
-                            <div class="input-group">
-                                <asp:TextBox ID="textboxCustomerName" cssclass="form-control" runat="server" placeholder="Customer name" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
-                                <br/>
-                                <asp:TextBox ID="textboxCustomerNumber" cssclass="form-control" runat="server" placeholder="Customer number" EnableViewState="False" ClientIDMode="Static"></asp:TextBox>
-                            </div>
-
                             <div class="form-horizontal">
-
                                 <div class="form-group">
-                                   <label for="form-Name" class="col-sm-2 control-label">Name</label>
+                                   <label for="textboxCustomerName" class="col-sm-2 control-label">Name</label>
                                    <div class="col-sm-10">
-                                      <input type="text" class="form-control" id="form-Name" />
+                                      <input type="text" class="form-control" id="textboxCustomerName" />
                                    </div>
                                 </div>
 
@@ -42,8 +41,6 @@
                                       <input type="text" class="form-control" id="form-Address" />
                                    </div>
                                 </div>
-
-
 
                                 <div class="form-group">
                                    <label for="form-City" class="col-sm-2 control-label">City</label>
@@ -93,12 +90,9 @@
                                    </div>
                                 </div>
 
-
-
+                                <div id="textboxCustomerNumber">                                    
+                                </div>
                             </div>
-
-
-
                         </asp:Panel>
 
                         <div class="col-md-4">

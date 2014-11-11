@@ -15,14 +15,14 @@ BegClass Home Partial(*Yes) Access(*Public) Extends(System.Web.UI.MasterPage)
     DclFld logger Type(log4Net.ILog) Shared(*Yes) Access(*Public)
     //logger = log4Net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
 
-    BegProp PageHeading Access(*Public) Type(*String) 
-        BegGet
-            LeaveSr labelPageHeading.Text 
-        EndGet
-        BegSet
-            labelPageHeading.Text = *PropVal
-        EndSet
-    EndProp
+//    BegProp PageHeading Access(*Public) Type(*String) 
+//        BegGet
+//            LeaveSr labelPageHeading.Text 
+//        EndGet
+//        BegSet
+//            labelPageHeading.Text = *PropVal
+//        EndSet
+//    EndProp
 
     BegProp DBName Type(*String) Access(*Public)
         BegGet 

@@ -67,3 +67,11 @@ input[type=text], input[type=password], input[type=email], input[type=number] {
   border-color: #15542f;
 }
 
+span.com {
+    color: #151b54;    
+    background-color: #bdedff;
+}
+
+span.str {
+    color: #254117;
+}

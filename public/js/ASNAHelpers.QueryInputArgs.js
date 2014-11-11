@@ -1,6 +1,12 @@
 ﻿(function (globals) {
     var ASNAHelpers = globals.ASNAHelpers = (globals.ASNAHelpers || {});
 
+    if (_.isUndefined(ASNAHelpers.Keys)) {
+        ASNAHelpers.Keys = {};
+        ASNAHelpers.Keys.Tab = 9;
+        ASNAHelpers.Keys.Enter = 13;
+    }
+
     // QueryInputArgs is a JavaScript object that corresponds to the 
     // ASNA.Helpers.DataServices.QueryFileInstanceArgs.InputArgs class.
     // After populating its properties, the Json its getJson() method

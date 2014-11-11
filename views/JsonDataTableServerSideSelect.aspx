@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
 </asp:Content>
 
+<asp:Content ID="Content4" ContentPlaceHolderID="PageHeadingPlaceHolder" Runat="Server">
+<h3>Populate the states list server side and the customer grid with JavaScript</h3>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 <div>
     <div class="col-md-3">

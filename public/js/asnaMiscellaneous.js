@@ -20,33 +20,51 @@
         var cacheKey = query.targetSelectId + "_cache";
 
         var doneCallBack = function(json) {
-            _.each(json.list, function(element,index,list) {
-                options.append($("<option />").val(element.value).text(element.text));
-            });
+            if (_.isUndefined(json.error)) {
+                _.each(json.list, function(element,index,list) {
+                    options.append($("<option />").val(element.value).text(element.text));
+                });
 
-            if (query.cacheList) {
-                sessionStorage.setItem(cacheKey,JSON.stringify(json));    
-            }
+                if (query.cacheList) {
+                    sessionStorage.setItem(cacheKey,JSON.stringify(json));    
+                }
 
-            if (! _.isUndefined(query.selectedValue)) {
-                options.val(query.selectedValue);
+                if (! _.isUndefined(query.selectedValue)) {
+                    options.val(query.selectedValue);
+                }
+                else {
+                    options.val(json.list[0].value);
+                }
+
+                if (query.raiseChangeEvent) {
+                    options.change();
+                }
             }
             else {
-                options.val(json.list[0].value);
-            }
-
-            if (query.raiseChangeEvent) {
-                options.change();
+                showGrowlError(json.error.message);       
             }
         };
 
+        var alwaysCallBack = function() {
+            $("#json-loading").hide();    
+        };
+        
         if (query.cacheList && sessionStorage.getItem(cacheKey)) {
             var json = JSON.parse(sessionStorage.getItem(cacheKey));        
             doneCallBack(json);
+            alwaysCallBack();
         }
         else {
-            ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack);    
+            ASNAHelpers.ajax.postJson(query.url,query.getJson(),doneCallBack,alwaysCallBack);    
         }
     };
+
+    globals.showGrowlError = function(msg) {
+        $.bootstrapGrowl(msg, {
+            offset: { from: 'top', amount: 70 },
+            type: "danger",
+            delay: 30000
+        });
+    }
 
 })(this);

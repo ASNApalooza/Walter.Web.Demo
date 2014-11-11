@@ -44,9 +44,12 @@
 
             $("#json-data-table").addClass('table table-striped table-bordered');    
             $("#grid-container").removeClass("hide");
+        };
+
+        var jsonCallComplete = function() {
             $("#json-loading").hide();    
         };
 
-        ASNAHelpers.ajax.postJson(query.url,query.getJson(),jsonReadyToRender);
+        ASNAHelpers.ajax.postJson(query.url,query.getJson(),jsonReadyToRender,jsonCallComplete);
     });
 });

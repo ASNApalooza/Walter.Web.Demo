@@ -48,6 +48,7 @@ BegClass views_JsonDataTableServerSideSelect Partial(*Yes) Access(*Public) Exten
         DclFld db           Type(ASNA.DataGate.Client.AdgConnection)        
         DclFld Query        Type(ASNA.Helpers.DataServices.QueryDriver)
         DclFld dt           Type(DataTable) 
+        DclFld jsBlock      Type(*String) 
         DclArray ListItems  Type(System.Web.UI.WebControls.ListItem) Rank(1)
 
         db = *New AdgConnection(DBNAME) 
@@ -63,12 +64,16 @@ BegClass views_JsonDataTableServerSideSelect Partial(*Yes) Access(*Public) Exten
         // The array of ListItems is now available. Generally you'll use a ComboBox 
         // or DropDownList's AddRange() method to assign this array.
         If (Query.Args.Error.ErrorException <> *Nothing)
-            // Work with exception here
+            jsBlock = "var serverErrorMsg = '" + Query.Args.Error.ErrorMessage + "';"
+            clientScript.RegisterClientScriptBlock(*This.GetType(),"errorMessage", jsBlock ,*True)  
+            (*This.Master *As Home).logger.Info("Walter query error.")             
+            (*This.Master *As Home).logger.Info(Query.Args.Error.ErrorException) 
+             ClientScript.RegisterStartupScript( *This.GetType(),"ShowGrowler", "showGrowlError(serverErrorMsg)", *True)           
+        Else             
+            stateList.Items.AddRange(ListItems) 
+            stateList.SelectedIndex = 0
         EndIf 
         db.Close()
-
-        stateList.Items.AddRange(ListItems) 
-        stateList.SelectedIndex = 0
     EndSr
 
 EndClass

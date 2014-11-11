@@ -185,3 +185,30 @@ INFO  2014-11-07 07:56:34,227 222894ms ExcelExport            CreateSpreadsheet 
 INFO  2014-11-07 07:58:35,823 344490ms Home                   Page_Load          - hello there
 INFO  2014-11-07 07:58:51,347 360014ms Home                   Page_Load          - hello there
 INFO  2014-11-07 07:59:31,317 399983ms Home                   Page_Load          - hello there
+INFO  2014-11-10 08:01:08,447 844537ms Home                   PopulateStatesList - Walter query error.
+INFO  2014-11-10 08:01:08,492 844582ms Home                   PopulateStatesList - ASNA.DataGate.Common.dgException: Object Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 120
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 64
+   at ASNA.Helpers.DataServices.QueryFile.Exec() in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 353
+INFO  2014-11-10 08:02:16,018 912108ms Home                   PopulateStatesList - Walter query error.
+INFO  2014-11-10 08:02:16,018 912108ms Home                   PopulateStatesList - ASNA.DataGate.Common.dgException: Object Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.FileObject.get_FileAttr()
+   at ASNA.DataGate.Client.FileFactory.MakeDataAttr(AdgConnection cn, String FileName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds, IFileData& fileProv, FileAttr& fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 120
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 64
+   at ASNA.Helpers.DataServices.QueryFile.Exec() in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 353
+INFO  2014-11-10 22:30:45,216 4536528ms Home                   Page_Load          - hello there
+INFO  2014-11-10 22:31:24,253 4575565ms Home                   Page_Load          - hello there
+INFO  2014-11-10 22:31:35,127 4586440ms Home                   Page_Load          - hello there

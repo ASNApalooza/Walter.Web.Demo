@@ -1,6 +1,11 @@
 ﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="ExportToExcel.aspx.vr" Inherits="views_ExportToExcel" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
 </asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="PageHeadingPlaceHolder" Runat="Server">
+<h3>Export a Walter query to Excel from ASP.NET</h3>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 <div class="col-md-3">
     <h3>Excel export</h3>

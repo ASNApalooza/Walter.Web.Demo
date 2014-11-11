@@ -71,7 +71,8 @@
         <main>
             <section class="jumbotron jumbotron-sm">
                 <div class="container">
-                    <h3><asp:Label ID="labelPageHeading" runat="server" Text="Example"></asp:Label></h3>
+                   	<asp:contentplaceholder id="PageHeadingPlaceHolder" runat="server"></asp:contentplaceholder> 
+                    <%--<h3><asp:Label ID="labelPageHeading" runat="server" Text="Exampleddd"></asp:Label></h3>--%>
                 </div>
             </section>
             <section class="container">

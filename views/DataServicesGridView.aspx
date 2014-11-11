@@ -13,7 +13,10 @@
     <%
     EndIf 
     %>
+</asp:Content>
 
+<asp:Content ID="Content4" ContentPlaceHolderID="PageHeadingPlaceHolder" Runat="Server">
+<h3>Populate the GridView with server-side Walter queries </h3>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
