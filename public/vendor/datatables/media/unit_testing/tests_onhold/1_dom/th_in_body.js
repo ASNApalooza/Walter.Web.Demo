@@ -1,148 +1,25 @@
-// DATA_TEMPLATE: dom_data_th
-oTest.fnStart( "Sanity checks for DataTables with DOM data and a TH in the body" );
-
-oTest.fnTest( 
-	"jQuery.dataTable function",
-	null,
-	function () { return typeof jQuery().dataTable == "function"; }
-);
-
-oTest.fnTest(
-	"jQuery.dataTableSettings storage array",
-	null,
-	function () { return typeof jQuery().dataTableSettings == "object"; }
-);
-
-oTest.fnTest(
-	"jQuery.dataTableExt plugin object",
-	null,
-	function () { return typeof jQuery().dataTableExt == "object"; }
-);
-
-$(document).ready( function () {
-	$('#example').dataTable();
-	
-	/* Basic checks */
-	oTest.fnTest( 
-		"Length changing div exists",
-		null,
-		function () { return document.getElementById('example_length') != null; }
-	);
-	
-	oTest.fnTest( 
-		"Filtering div exists",
-		null,
-		function () { return document.getElementById('example_filter') != null; }
-	);
-	
-	oTest.fnTest( 
-		"Information div exists",
-		null,
-		function () { return document.getElementById('example_info') != null; }
-	);
-	
-	oTest.fnTest( 
-		"Pagination div exists",
-		null,
-		function () { return document.getElementById('example_paginate') != null; }
-	);
-	
-	oTest.fnTest( 
-		"Processing div is off by default",
-		null,
-		function () { return document.getElementById('example_processing') == null; }
-	);
-	
-	oTest.fnTest( 
-		"10 rows shown on the first page",
-		null,
-		function () { return $('#example tbody tr').length == 10; }
-	);
-	
-	oTest.fnTest( 
-		"Initial sort occured",
-		null,
-		function () { return $('#example tbody td:eq(0)').html() == "Gecko"; }
-	);
-	
-	/* Need to use the WaitTest for sorting due to the setTimeout datatables uses */
-	oTest.fnTest( 
-		"Sorting (first click) on second column",
-		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting (second click) on second column",
-		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "Seamonkey 1.1"; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting (third click) on second column",
-		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting (first click) on numeric column",
-		function () { $('#example thead th:eq(3)').click(); },
-		function () { return $('#example tbody td:eq(3)').html() == "-"; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting (second click) on numeric column",
-		function () { $('#example thead th:eq(3)').click(); },
-		function () { return $('#example tbody td:eq(3)').html() == "522.1"; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting multi-column (first click)",
-		function () { 
-			$('#example thead th:eq(0)').click();
-			oDispacher.click( $('#example thead th:eq(1)')[0], { 'shift': true } ); },
-		function () { var b = 
-			$('#example tbody td:eq(0)').html() == "Gecko" && 
-			$('#example tbody td:eq(1)').html() == "Camino 1.0"; return b; }
-	);
-	
-	oTest.fnTest( 
-		"Sorting multi-column - sorting second column only",
-		function () { 
-			$('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
-	);
-	
-	/* Basic paging */
-	oTest.fnTest( 
-		"Paging to second page",
-		function () { $('#example_next').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "IE Mobile"; }
-	);
-	
-	oTest.fnTest( 
-		"Paging to first page",
-		function () { $('#example_previous').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
-	);
-	
-	oTest.fnTest( 
-		"Attempting to page back beyond the first page",
-		function () { $('#example_previous').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
-	);
-	
-	/* Changing length */
-	oTest.fnTest( 
-		"Changing table length to 25 records",
-		function () { $("select[name=example_length]").val('25').change(); },
-		function () { return $('#example tbody tr').length == 25; }
-	);
-	
-	oTest.fnTest( 
-		"Changing table length to 50 records",
-		function () { $("select[name=example_length]").val('50').change(); },
-		function () { return $('#example tbody tr').length == 50; }
+OG]!><time="16:35:47.265+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:288">
+<![LOG[Termination event received for process 2556]LOG]!><time="16:35:47.265+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:292">
+<![LOG[Termination event received for process 1580]LOG]!><time="16:35:47.265+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:292">
+<![LOG[No active process found with ID 1580]LOG]!><time="16:35:47.266+360" date="02-26-2015" component="mtrmgr" context="" type="3" thread="3972" file="activeprocesses.cpp:119">
+<![LOG[Creation event received for process 4580]LOG]!><time="16:35:47.299+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:254">
+<![LOG[Unable to collect process information as process has terminated]LOG]!><time="16:35:47.395+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:168">
+<![LOG[No usage will be tracked for process 4580, as failed to get owner info or executable file name 80004005]LOG]!><time="16:35:47.395+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:288">
+<![LOG[Creation event received for process 4264]LOG]!><time="16:35:47.395+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:254">
+<![LOG[Unable to collect process information as process has terminated]LOG]!><time="16:35:47.441+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:168">
+<![LOG[No usage will be tracked for process 4264, as failed to get owner info or executable file name 80004005]LOG]!><time="16:35:47.441+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:288">
+<![LOG[Termination event received for process 4580]LOG]!><time="16:35:47.441+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:292">
+<![LOG[No active process found with ID 4580]LOG]!><time="16:35:47.441+360" date="02-26-2015" component="mtrmgr" context="" type="3" thread="3972" file="activeprocesses.cpp:119">
+<![LOG[Creation event received for process 5848]LOG]!><time="16:35:47.441+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:254">
+<![LOG[Unable to collect process information as process has terminated]LOG]!><time="16:35:47.482+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:168">
+<![LOG[No usage will be tracked for process 5848, as failed to get owner info or executable file name 80004005]LOG]!><time="16:35:47.482+360" date="02-26-2015" component="mtrmgr" context="" type="2" thread="5412" file="processdata.cpp:288">
+<![LOG[Termination event received for process 4264]LOG]!><time="16:35:47.482+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:292">
+<![LOG[No active process found with ID 4264]LOG]!><time="16:35:47.482+360" date="02-26-2015" component="mtrmgr" context="" type="3" thread="3972" file="activeprocesses.cpp:119">
+<![LOG[Creation event received for process 4452]LOG]!><time="16:35:47.482+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:254">
+<![LOG[Process ID 4452 is for process C:\Windows\Microsoft.NET\Framework\v4.0.30319\ngen.exe]LOG]!><time="16:35:47.583+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="processdata.cpp:142">
+<![LOG[Termination event received for process 5848]LOG]!><time="16:35:47.583+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="5412" file="swmtrmanager.cpp:292">
+<![LOG[No matching rule found for process 4452]LOG]!><time="16:35:47.583+360" date="02-26-2015" component="mtrmgr" context="" type="1" thread="3972" file="activeprocesses.cpp:65">
+<![LOG[Termination event received for process 4452]LOG]!>nction () { return $('#example tbody tr').length == 50; }
 	);
 	
 	oTest.fnTest( 

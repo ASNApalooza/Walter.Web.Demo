@@ -54,7 +54,7 @@ BegClass views_JsonDataTableServerSideSelect Partial(*Yes) Access(*Public) Exten
         db = *New AdgConnection(DBNAME) 
         db.Open()
         Query = *New ASNA.Helpers.DataServices.QueryDriver(db)
-        Query.Args.Inputs.Library      = "examples"
+        Query.Args.Inputs.Library      = "devo"
         Query.Args.Inputs.File         = "states"
         Query.Args.Inputs.FieldsList   = "State:text,Abbrev:value"
         Query.Args.Inputs.Rows         = -1

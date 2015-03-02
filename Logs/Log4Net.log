@@ -212,3 +212,39 @@ INFO  2014-11-10 08:02:16,018 912108ms Home                   PopulateStatesList
 INFO  2014-11-10 22:30:45,216 4536528ms Home                   Page_Load          - hello there
 INFO  2014-11-10 22:31:24,253 4575565ms Home                   Page_Load          - hello there
 INFO  2014-11-10 22:31:35,127 4586440ms Home                   Page_Load          - hello there
+INFO  2014-11-14 16:38:26,873 871985ms Home                   Page_Load          - hello there
+INFO  2014-11-14 16:38:28,407 873519ms Home                   Page_Load          - hello there
+INFO  2014-11-14 16:38:28,435 873546ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2014-11-17 09:39:54,399 1303505ms Home                   Page_Load          - hello there
+INFO  2014-11-17 09:39:56,455 1305560ms Home                   Page_Load          - hello there
+INFO  2014-11-17 09:39:56,482 1305588ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2015-03-01 15:00:48,879 52442ms Home                   PopulateStatesList - Walter query error.
+INFO  2015-03-01 15:00:48,973 52536ms Home                   PopulateStatesList - ASNA.DataGate.Common.dgException: Member Not Found
+   at ASNA.DataGate.DataLink.DataLink.ThrowExtendedError()
+   at ASNA.DataGate.DataLink.DataLink.SndRcvParms(WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.DataLink.Call(MsgID msgID, Int32 iFormat, WriterDelegate outParms, ReaderDelegate inParms)
+   at ASNA.DataGate.DataLink.AccessFile.Open(String filePath, String memberName, AccessMode mode, FileOpenAttr openAttr, FileAttr fileAttr)
+   at ASNA.DataGate.DataLink.BlockFile.Open(String filePath, String memberName, AccessMode mode, FileOpenAttr openAttr, FileAttr fileAttr)
+   at ASNA.DataGate.Client.FileFactory.NewFileData(AdgConnection cn, String FileName, String MemberName, AccessMode mode, FileOpenAttr openAttr, AdgDataSet& ds)
+   at ASNA.DataGate.Client.FileAdapter.OpenNewAdgDataSet(AdgDataSet& ds)
+   at ASNA.Helpers.DataServices.QueryFile.ReadRowsWithPagedQuery(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 120
+   at ASNA.Helpers.DataServices.QueryFile.GetQueryRows(Int32 RecordsToRead) in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 64
+   at ASNA.Helpers.DataServices.QueryFile.Exec() in C:\rpDocuments\Programming\AVR\Other\ASNA.Helpers.DataServices\ASNA.Helpers.DataServices\QueryFile.vr:line 353
+INFO  2015-03-01 15:01:52,071 115634ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:01:53,974 117537ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:03:04,917 188480ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:03:06,728 190291ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:05:38,428  5928ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:05:40,366  7866ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:09:42,962 250462ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:09:45,109 252609ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:11:59,250 19572ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:12:01,090 21412ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:12:01,310 21632ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2015-03-01 15:13:19,637 99959ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:13:21,367 101689ms Home                   Page_Load          - hello there
+INFO  2015-03-01 15:13:21,368 101690ms ExcelExport            CreateSpreadsheet  - Hello, world from the new Excel class.
+INFO  2015-03-01 16:22:22,966 2403872ms Home                   Page_Load          - hello there
+INFO  2015-03-01 16:24:52,808 2553714ms Home                   Page_Load          - hello there
+INFO  2015-03-01 16:28:23,643 2764549ms Home                   Page_Load          - hello there
+INFO  2015-03-01 16:29:34,351 2835257ms Home                   Page_Load          - hello there

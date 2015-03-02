@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                    <label for="textboxCustomerName" class="col-sm-2 control-label">Name</label>
                                    <div class="col-sm-10">
-                                      <input type="text" class="form-control" id="textboxCustomerName" />
+                                      <input type="text" class="form-control" id="textboxCustomerName" placeholder="Customer name for autocomplete..." />
                                    </div>
                                 </div>
 

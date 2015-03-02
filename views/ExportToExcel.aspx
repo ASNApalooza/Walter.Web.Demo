@@ -30,8 +30,7 @@
               <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div>
-<%-- 
+                            <div><%-- 
                                 <input type="text" name="library"        id="library" required="required" value="examples" /><br />
                                 <input type="text" name="file"           id="file" required="required"  value="CMastNewL2" /><br />
                                 <input type="text" name="fieldsList"     id="fieldsList" required="required"  value="CMCUSTNO:Number,CMNAME:Name,CMADDR1:Address,CMCITY:City" /><br />
@@ -43,6 +42,11 @@
                                 <asp:LinkButton ID="linkbuttonExportToExcel" role="button" cssclass="btn btn-sm btn-excel active" runat="server" ClientIDMode="Static">Export customer list Excel</asp:LinkButton>
                             </div>    
                         </div>    
+                        <div class="col-md-12" style="margin-top: 40px;">
+                            <div class="alert alert-info">
+                                Exporting to Excel requires the server (or your development PC) have the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30425">Microsoft Open XML SDK for MS Office</a> installed.
+                            </div>
+                        </div>
                     </div>
               </div>
             </div>

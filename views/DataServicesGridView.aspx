@@ -5,11 +5,11 @@
     <%
     If (HttpContext.Current.IsDebuggingEnabled)     
     %>
-    <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.css">
+        <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.css">
     <%
     Else
     %>
-    <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.min.css">
+        <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.min.css">
     <%
     EndIf 
     %>

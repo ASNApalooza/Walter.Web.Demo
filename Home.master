@@ -54,7 +54,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="DataServicesGridView.aspx">DataList in GridView</a></li>
+                                <li><a href="TraditionalGridView.aspx">Traditional GridView</a></li>
+                                <li><a href="DataServicesGridView.aspx">Walter in GridView</a></li>
                                 <li><a href="JsonDataTableClientSideSelect.aspx">Json DataTable • Client-side select</a></li>
                                 <li><a href="JsonDataTableServerSideSelect.aspx">Json DataTable • Server-side select</a></li>
                                 <li><a href="jQueryAutoComplete.aspx">jQuery AutoComplete</a></li>
@@ -86,7 +87,7 @@
             <div class="row">
                 <hr />    
                 <div class="col-md-12">
-                    <asp:Label ID="lblCopyright" runat="server" Text="Label" CssClass="footer-text">&copy; 2014 by ASNA. All rights reserved. ASNApalooza 2014</asp:Label>
+                    <asp:Label ID="lblCopyright" runat="server" Text="Label" CssClass="footer-text">&copy; 2014 by ASNA. All rights reserved.</asp:Label>
                 </div>
             </div>
         </footer>
