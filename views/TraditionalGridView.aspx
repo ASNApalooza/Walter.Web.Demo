@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="AVR" MasterPageFile="~/Home.master" AutoEventWireup="false" CodeFile="TraditionalGridView.aspx.vr" Inherits="views_TraditionalGridView" Title="Untitled Page" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHeader" Runat="Server">
-
     <%
-    If (HttpContext.Current.IsDebuggingEnabled)     
+    If (HttpContext.Current.IsDebuggingEnabled)
     %>
     <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.css">
     <%
@@ -12,20 +10,19 @@
     %>
     <link rel="stylesheet" href="../public/css/DataServicesGridView.aspx.min.css">
     <%
-    EndIf 
+    EndIf
     %>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PageHeadingPlaceHolder" Runat="Server">
-<h3>Populate the GridView traditionally with AVR and a DclDiskFile</h3>
+    <h3>Populate the GridView traditionally with AVR and a DclDiskFile</h3>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" Runat="Server">
 
 <div class="col-md-3">
     <h3>Using Walter in a traditional ASP.NET page</h3>
-    <p>This page shows traditional use of AVR's DclDisk file to populate a DataGrid. RPG limits processing 
-    provides "paging" through the customer list. 
+    <p>This page shows traditional use of AVR's DclDisk file to populate a DataGrid. RPG limits processing provides "paging" through the customer list.
     </p>
     <p>
     </p>
@@ -34,21 +31,23 @@
             Show source code
             </button>
     </p>
-
 </div>
+
 <div class="col-md-9">
     <div id="content-page-main">
         <div>
+
             <div class="panel panel-default">
               <div class="panel-body">
                     <div class="row">
                         <asp:Panel ID="Panel1" runat="server" CssClass="col-md-4"  DefaultButton="linkbuttonPosition">
 
-
                             <div class="input-group">
                                 <asp:TextBox ID="textboxPosition" cssclass="form-control" runat="server" placeholder="Find customer" ClientIDMode="Static"></asp:TextBox>
                                 <span class="input-group-btn">
-                                    <asp:LinkButton ID="linkbuttonPosition" runat="server" CssClass="btn btn-default"><span class="sr-only">Position to</span><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkbuttonPosition" runat="server" CssClass="btn btn-default">
+                                        <span class="sr-only">Position to</span><span class="glyphicon glyphicon-search"></span>
+                                    </asp:LinkButton>
                                 </span>
                             </div>
 
@@ -67,16 +66,17 @@
                                         <li role="presentation"><asp:LinkButton ID="linkbuttonByNumber" runat="server" role="menuitem">By number</asp:LinkButton></li>
                                     </ul>
 
-                                </div>                                
+                                </div>
                                 <asp:LinkButton ID="linkbuttonFirst" runat="server" CssClass="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span> First</asp:LinkButton>
 --%>
 
                                 <asp:LinkButton ID="linkbuttonNext" runat="server" CssClass="btn btn-default">Next <span class="glyphicon glyphicon-play"></span></asp:LinkButton>
-                            </div>    
-                        </div>    
+                            </div>
+                        </div>
                     </div>
               </div>
             </div>
+
             <asp:GridView ID="gridviewCustomers" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-condensed">
                 <Columns>
                     <asp:BoundField DataField="Customer_CMCUSTNO" HeaderText="Number" >
@@ -87,7 +87,7 @@
             </asp:GridView>
         </div>
     </div>
-</div> 
+</div>
 
 
 <!-- Modal -->
@@ -101,7 +101,7 @@
       </div>
       <div class="modal-body">
 
-<pre class="prettyprint linenums">DclFld DBNAME Type(*String) 
+<pre class="prettyprint linenums">DclFld DBNAME Type(*String)
 DclDB pgmDB DBName( "*PUBLIC/DG Net Local" )
 
 DclDiskFile  CustomerByName +
@@ -112,11 +112,11 @@ DclDiskFile  CustomerByName +
       DB( pgmDB ) +
       ImpOpen( *No )
 
-DclMemoryFile CustomerByNameMF ImpOpen( *Yes ) 
-    DclRecordFormat Customers 
+DclMemoryFile CustomerByNameMF ImpOpen( *Yes )
+    DclRecordFormat Customers
     DclRecordFld    Customer_CMCustNo  Type( *Packed ) Len( 9,0 )
-    DclRecordFld    Customer_CMName    Type( *Char ) Len( 40 )     
-    
+    DclRecordFld    Customer_CMName    Type( *Char ) Len( 40 )
+
 BegSr Page_Load Access(*Private) Event(*This.Load)
     DclSrParm sender Type(*Object)
     DclSrParm e Type(System.EventArgs)
@@ -124,7 +124,7 @@ BegSr Page_Load Access(*Private) Event(*This.Load)
     DBNAME = (*This.Master *As Home).DBName
 
     pgmDB.DBName = DBNAME
-    Connect pgmDB 
+    Connect pgmDB
     Open CustomerByName
 
     If (NOT Page.IsPostBack)
@@ -143,20 +143,20 @@ EndSr
 
 BegSr LoadGrid
     Do FromVal( 1 ) ToVal( 12 )
-        Read CustomerByName 
-        If ( CustomerByName.IsEof ) 
+        Read CustomerByName
+        If ( CustomerByName.IsEof )
             Leave
         EndIf
 
-        Write CustomerByNameMF 
+        Write CustomerByNameMF
     EndDo
 
     Viewstate["custno"] = Customer_CMCustNo
-    Viewstate["name"] = Customer_CMName 
+    Viewstate["name"] = Customer_CMName
 
     gridviewCustomers.DataSource = CustomerByNameMF.DataSet
-    gridViewCustomers.DataBind()  
-EndSr 
+    gridViewCustomers.DataBind()
+EndSr
 
 BegSr linkbuttonNext_Click Access(*Private) Event(*This.linkbuttonNext.Click)
     DclSrParm sender Type(*Object)
@@ -165,8 +165,8 @@ BegSr linkbuttonNext_Click Access(*Private) Event(*This.linkbuttonNext.Click)
     Customer_CMName = Viewstate["name"].ToString()
     Customer_CMCustNo = Viewstate["custno"].ToString()
 
-    SetGT CustomerByName Key(Customer_CMName, Customer_CMCustNo) 
-    LoadGrid()      
+    SetGT CustomerByName Key(Customer_CMName, Customer_CMCustNo)
+    LoadGrid()
 EndSr
 
 BegSr linkbuttonPosition_Click Access(*Private) Event(*This.linkbuttonPosition.Click)
@@ -176,12 +176,12 @@ BegSr linkbuttonPosition_Click Access(*Private) Event(*This.linkbuttonPosition.C
     Customer_CMName = textboxPosition.Text.Trim()
     Customer_CMCustNo = 0
 
-    SetLL CustomerByName Key(Customer_CMName, Customer_CMCustNo) 
-    LoadGrid()              
+    SetLL CustomerByName Key(Customer_CMName, Customer_CMCustNo)
+    LoadGrid()
 EndSr
 
 </pre>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -198,7 +198,7 @@ EndSr
     <script src="../public/js/DataServicesGridView.aspx.js"></script>
 
     <%
-    If (HttpContext.Current.IsDebuggingEnabled)     
+    If (HttpContext.Current.IsDebuggingEnabled)
     %>
     <script src="../public/js/DataServicesGridView.aspx.js"></script>
     <%
@@ -206,7 +206,7 @@ EndSr
     %>
     <script src="../public/js/DataServicesGridView.aspx.min.js"></script>
     <%
-    EndIf 
+    EndIf
     %>
 
 </asp:Content>
